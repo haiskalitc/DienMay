@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AF96088-831D-4DF5-A050-71BF3A124FF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DienMay</RootNamespace>
+    <AssemblyName>DienMay</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.108.0\lib\net40\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.108.0\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.108.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Template.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Template\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{0e9049fc-7335-4cf0-9fb7-a1452e825136}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\%281%29.png" />
+    <Resource Include="Images\%281%29_Gray.png" />
+    <Resource Include="Images\1.png" />
+    <Resource Include="Images\10.png" />
+    <Resource Include="Images\11.png" />
+    <Resource Include="Images\12.png" />
+    <Resource Include="Images\1_bg.png" />
+    <Resource Include="Images\1_White.png" />
+    <Resource Include="Images\2.5.png" />
+    <Resource Include="Images\2.5_White.png" />
+    <Resource Include="Images\2.png" />
+    <Resource Include="Images\2_bg.png" />
+    <Resource Include="Images\2_white.png" />
+    <Resource Include="Images\3.png" />
+    <Resource Include="Images\3_bg.png" />
+    <Resource Include="Images\3_white.png" />
+    <Resource Include="Images\5.png" />
+    <Resource Include="Images\6.png" />
+    <Resource Include="Images\7.png" />
+    <Resource Include="Images\8.png" />
+    <Resource Include="Images\9.png" />
+    <Resource Include="Images\AlignCenter.png" />
+    <Resource Include="Images\AlignLeft.png" />
+    <Resource Include="Images\AlignRight.png" />
+    <Resource Include="Images\AlignStrech.png" />
+    <Resource Include="Images\arrow.png" />
+    <Resource Include="Images\Backcolor.png" />
+    <Resource Include="Images\Bold.png" />
+    <Resource Include="Images\Btn_Back%401x.png" />
+    <Resource Include="Images\Btn_Back%401xx.png" />
+    <Resource Include="Images\Btn_Back%402x.png" />
+    <Content Include="Images\Btn_Back.svg" />
+    <Resource Include="Images\Btn_Form%401x.png" />
+    <Resource Include="Images\Btn_Form%402x.png" />
+    <Content Include="Images\Btn_Form.svg" />
+    <Resource Include="Images\Btn_Search%401x.png" />
+    <Resource Include="Images\Btn_Search%402x.png" />
+    <Content Include="Images\Btn_Search.svg" />
+    <Resource Include="Images\BulletList.png" />
+    <Resource Include="Images\changesize.png" />
+    <Resource Include="Images\Color.png" />
+    <Resource Include="Images\Computer.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\Cut.png" />
+    <Resource Include="Images\DanhSachDeThi_Green_50x40.png" />
+    <Resource Include="Images\DanhSachDeThi_Red_50x40.png" />
+    <Resource Include="Images\DapAn\A.png" />
+    <Resource Include="Images\DapAn\AB.png" />
+    <Resource Include="Images\DapAn\AC.png" />
+    <Resource Include="Images\DapAn\AD.png" />
+    <Resource Include="Images\DapAn\answer.png" />
+    <Resource Include="Images\DapAn\B.png" />
+    <Resource Include="Images\DapAn\BC.png" />
+    <Resource Include="Images\DapAn\BD.png" />
+    <Resource Include="Images\DapAn\C.png" />
+    <Resource Include="Images\DapAn\cau_ma.png" />
+    <Resource Include="Images\DapAn\CD.png" />
+    <Resource Include="Images\DapAn\D.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Delete_Hover.png" />
+    <Resource Include="Images\DongBo.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\export.png" />
+    <Resource Include="Images\Formated.png" />
+    <Resource Include="Images\function-512.png" />
+    <Resource Include="Images\HoanTat.png" />
+    <Resource Include="Images\HoanThanh.png" />
+    <Resource Include="Images\HuongDanSuDung.png" />
+    <Resource Include="Images\iconcongthuc.png" />
+    <Resource Include="Images\Icon_Arrow%401x.png" />
+    <Resource Include="Images\Icon_Arrow%402x.png" />
+    <Content Include="Images\Icon_Arrow.svg" />
+    <Resource Include="Images\Icon_Cancel%402x.png" />
+    <Resource Include="Images\Icon_Cancel%403x.png" />
+    <Resource Include="Images\Icon_Cancel.png" />
+    <Resource Include="Images\Icon_Cancel_Hover%402x.png" />
+    <Resource Include="Images\Icon_Combobox%403x.png" />
+    <Resource Include="Images\Icon_Delete%401x.png" />
+    <Resource Include="Images\Icon_Delete%402x.png" />
+    <Content Include="Images\Icon_Delete.svg" />
+    <Resource Include="Images\Icon_Detail%401x.png" />
+    <Resource Include="Images\Icon_Detail%402x.png" />
+    <Content Include="Images\Icon_Detail.svg" />
+    <Resource Include="Images\Icon_Detail_ed%401x.png" />
+    <Resource Include="Images\Icon_Detail_ed%402x.png" />
+    <Resource Include="Images\Icon_Edit%401x.png" />
+    <Resource Include="Images\Icon_Edit%402x.png" />
+    <Resource Include="Images\Icon_Edit%402xx.png" />
+    <Content Include="Images\Icon_Edit.svg" />
+    <Resource Include="Images\Icon_Feature_DangKiBanQuyen_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_DangKiBanQuyen_ed_Gray%401x.png" />
+    <Resource Include="Images\Icon_Feature_DanhMucChuyenDe%401x.png" />
+    <Resource Include="Images\Icon_Feature_DanhMucChuyenDe%402x.png" />
+    <Resource Include="Images\Icon_Feature_DanhMucChuyenDe%402x_Red.png" />
+    <Content Include="Images\Icon_Feature_DanhMucChuyenDe.svg" />
+    <Resource Include="Images\Icon_Feature_DanhMucChuyenDe_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_DanhMucChuyenDe_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_DanhMucChuyenDe_ed.svg" />
+    <Resource Include="Images\Icon_Feature_DanhMucMonHoc%401x.png" />
+    <Resource Include="Images\Icon_Feature_DanhMucMonHoc%402x.png" />
+    <Resource Include="Images\Icon_Feature_DanhMucMonHoc%402x_Red.png" />
+    <Content Include="Images\Icon_Feature_DanhMucMonHoc.svg" />
+    <Resource Include="Images\Icon_Feature_DanhMucMonHoc_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_DanhMucMonHoc_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_DanhMucMonHoc_ed.svg" />
+    <Resource Include="Images\Icon_Feature_Delete%401x.png" />
+    <Resource Include="Images\Icon_Feature_Delete%402x.png" />
+    <Content Include="Images\Icon_Feature_Delete.svg" />
+    <Resource Include="Images\Icon_Feature_DongBo%401x.png" />
+    <Resource Include="Images\Icon_Feature_DongBo%402x.png" />
+    <Content Include="Images\Icon_Feature_DongBo.svg" />
+    <Resource Include="Images\Icon_Feature_DongBo_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_DongBo_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_DongBo_ed.svg" />
+    <Resource Include="Images\Icon_Feature_DuyetCauHoi%401x.png" />
+    <Resource Include="Images\Icon_Feature_DuyetCauHoi%402x.png" />
+    <Content Include="Images\Icon_Feature_DuyetCauHoi.svg" />
+    <Resource Include="Images\Icon_Feature_DuyetCauHoi_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_DuyetCauHoi_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_DuyetCauHoi_ed.svg" />
+    <Resource Include="Images\Icon_Feature_Edit%401x.png" />
+    <Resource Include="Images\Icon_Feature_Edit%402x.png" />
+    <Content Include="Images\Icon_Feature_Edit.svg" />
+    <Resource Include="Images\Icon_Feature_HuongDanSuDung%401x.png" />
+    <Resource Include="Images\Icon_Feature_HuongDanSuDung%402x.png" />
+    <Content Include="Images\Icon_Feature_HuongDanSuDung.svg" />
+    <Resource Include="Images\Icon_Feature_HuongDanSuDung_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_HuongDanSuDung_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_HuongDanSuDung_ed.svg" />
+    <Resource Include="Images\Icon_Feature_KhoLuuTruCauHoi%401x.png" />
+    <Resource Include="Images\Icon_Feature_KhoLuuTruCauHoi%402x.png" />
+    <Content Include="Images\Icon_Feature_KhoLuuTruCauHoi.svg" />
+    <Resource Include="Images\Icon_Feature_KhoLuuTruCauHoi_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_KhoLuuTruCauHoi_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_KhoLuuTruCauHoi_ed.svg" />
+    <Resource Include="Images\Icon_Feature_NhapTuKhoKhac%401x.png" />
+    <Resource Include="Images\Icon_Feature_NhapTuKhoKhac%402x.png" />
+    <Content Include="Images\Icon_Feature_NhapTuKhoKhac.svg" />
+    <Resource Include="Images\Icon_Feature_NhapTuKhoKhac_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_NhapTuKhoKhac_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_NhapTuKhoKhac_ed.svg" />
+    <Resource Include="Images\Icon_Feature_NhapTuTapTin%401x.png" />
+    <Resource Include="Images\Icon_Feature_NhapTuTapTin%402x.png" />
+    <Content Include="Images\Icon_Feature_NhapTuTapTin.svg" />
+    <Resource Include="Images\Icon_Feature_NhapTuTapTin_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_NhapTuTapTin_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_NhapTuTapTin_ed.svg" />
+    <Resource Include="Images\Icon_Feature_PhucHoi%401x.png" />
+    <Resource Include="Images\Icon_Feature_PhucHoi%402x.png" />
+    <Content Include="Images\Icon_Feature_PhucHoi.svg" />
+    <Resource Include="Images\Icon_Feature_PhucHoi_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_PhucHoi_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_PhucHoi_ed.svg" />
+    <Resource Include="Images\Icon_Feature_PhucHoi_ed_1%401x.png" />
+    <Resource Include="Images\Icon_Feature_PhucHoi_ed_1%402x.png" />
+    <Content Include="Images\Icon_Feature_PhucHoi_ed_1.svg" />
+    <Resource Include="Images\Icon_Feature_SaoLuu%401x.png" />
+    <Resource Include="Images\Icon_Feature_SaoLuu%402x.png" />
+    <Content Include="Images\Icon_Feature_SaoLuu.svg" />
+    <Resource Include="Images\Icon_Feature_SaoLuu_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_SaoLuu_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_SaoLuu_ed.svg" />
+    <Resource Include="Images\Icon_Feature_TaoCauHoi%401x.png" />
+    <Resource Include="Images\Icon_Feature_TaoCauHoi%402x.png" />
+    <Content Include="Images\Icon_Feature_TaoCauHoi.svg" />
+    <Resource Include="Images\Icon_Feature_TaoCauHoi_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_TaoCauHoi_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_TaoCauHoi_ed.svg" />
+    <Resource Include="Images\Icon_Feature_ThayDoiMatKhau%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThayDoiMatKhau%402x.png" />
+    <Content Include="Images\Icon_Feature_ThayDoiMatKhau.svg" />
+    <Resource Include="Images\Icon_Feature_ThayDoiMatKhau_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThayDoiMatKhau_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_ThayDoiMatKhau_ed.svg" />
+    <Resource Include="Images\Icon_Feature_ThemCauHoi%402x.png" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTukho%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTukho%402x.png" />
+    <Content Include="Images\Icon_Feature_ThietLapDeThiTukho.svg" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTuKho_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTuKho_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_ThietLapDeThiTuKho_ed.svg" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTuTapTin%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTuTapTin%402x.png" />
+    <Content Include="Images\Icon_Feature_ThietLapDeThiTuTapTin.svg" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTuTapTin_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThietLapDeThiTuTapTin_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_ThietLapDeThiTuTapTin_ed.svg" />
+    <Resource Include="Images\Icon_Feature_ThongTinCaNhan%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThongTinCaNhan%402x.png" />
+    <Content Include="Images\Icon_Feature_ThongTinCaNhan.svg" />
+    <Resource Include="Images\Icon_Feature_ThongTinCaNhan_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThongTinCaNhan_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_ThongTinCaNhan_ed.svg" />
+    <Resource Include="Images\Icon_Feature_ThongTinPhanMem%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThongTinPhanMem%402x.png" />
+    <Content Include="Images\Icon_Feature_ThongTinPhanMem.svg" />
+    <Resource Include="Images\Icon_Feature_ThongTinPhanMem_ed%401x.png" />
+    <Resource Include="Images\Icon_Feature_ThongTinPhanMem_ed%402x.png" />
+    <Content Include="Images\Icon_Feature_ThongTinPhanMem_ed.svg" />
+    <Resource Include="Images\Icon_Feature_v3_DuyetCauHoi_Gray.png" />
+    <Resource Include="Images\Icon_Feature_v3_DuyetCauHoi_Green.png" />
+    <Resource Include="Images\Icon_Feature_v3_DuyetCauHoi_Red.png" />
+    <Resource Include="Images\Icon_Feature_v3_Edit_Green.png" />
+    <Resource Include="Images\Icon_Feature_v3_Edit_Red.png" />
+    <Resource Include="Images\Icon_Feature_v3_KhoLuuTruCauHoi_Green_40.png" />
+    <Resource Include="Images\Icon_Feature_v3_KhoLuuTruCauHoi_Red_40.png" />
+    <Resource Include="Images\Icon_Feature_v3_NhapTuCoSoDuLieu.png" />
+    <Resource Include="Images\Icon_Feature_v3_NhapTuCoSoDuLieu_Red.png" />
+    <Resource Include="Images\Icon_Feature_v3_NhapTuTapTinVanBan_Green.png" />
+    <Resource Include="Images\Icon_Feature_v3_NhapTuTapTinVanBan_Red.png" />
+    <Resource Include="Images\Icon_Feature_v3_SoanCauHoiTracNghiem_Green.png" />
+    <Resource Include="Images\Icon_Feature_v3_SoanCauHoiTracNghiem_Red.png" />
+    <Resource Include="Images\Icon_Hide%401x.png" />
+    <Resource Include="Images\Icon_Hide%402x.png" />
+    <Content Include="Images\Icon_Hide.svg" />
+    <Resource Include="Images\Icon_Login_Name%401x.png" />
+    <Resource Include="Images\Icon_Login_Name%402x.png" />
+    <Resource Include="Images\Icon_Login_Name%403x.png" />
+    <Content Include="Images\Icon_Login_Name.svg" />
+    <Resource Include="Images\Icon_Login_Pass%401x.png" />
+    <Resource Include="Images\Icon_Login_Pass%402x.png" />
+    <Resource Include="Images\Icon_Login_Pass%403x.png" />
+    <Content Include="Images\Icon_Login_Pass.svg" />
+    <Resource Include="Images\Icon_Menu_DanhMucDuLieu%401x.png" />
+    <Resource Include="Images\Icon_Menu_DanhMucDuLieu%402x.png" />
+    <Resource Include="Images\Icon_Menu_DanhMucDuLieu%403x.png" />
+    <Content Include="Images\Icon_Menu_DanhMucDuLieu.svg" />
+    <Resource Include="Images\Icon_Menu_HeThong%401x.png" />
+    <Resource Include="Images\Icon_Menu_HeThong%402x.png" />
+    <Resource Include="Images\Icon_Menu_HeThong%403x.png" />
+    <Content Include="Images\Icon_Menu_HeThong.svg" />
+    <Resource Include="Images\Icon_Menu_KhoLuuTruCauHoi%401x.png" />
+    <Resource Include="Images\Icon_Menu_KhoLuuTruCauHoi%402x.png" />
+    <Resource Include="Images\Icon_Menu_KhoLuuTruCauHoi%403x.png" />
+    <Content Include="Images\Icon_Menu_KhoLuuTruCauHoi.svg" />
+    <Resource Include="Images\Icon_Menu_TaiKhoan%401x.png" />
+    <Resource Include="Images\Icon_Menu_TaiKhoan%402x.png" />
+    <Resource Include="Images\Icon_Menu_TaiKhoan%403x.png" />
+    <Content Include="Images\Icon_Menu_TaiKhoan.svg" />
+    <Resource Include="Images\Icon_Menu_ThietLapDeThi%401x.png" />
+    <Resource Include="Images\Icon_Menu_ThietLapDeThi%402x.png" />
+    <Resource Include="Images\Icon_Menu_ThietLapDeThi%403x.png" />
+    <Content Include="Images\Icon_Menu_ThietLapDeThi.svg" />
+    <Resource Include="Images\Icon_Menu_ThongTinNguoiDung%401x.png" />
+    <Resource Include="Images\Icon_Menu_ThongTinNguoiDung%402x.png" />
+    <Resource Include="Images\Icon_Menu_ThongTinNguoiDung%403x.png" />
+    <Content Include="Images\Icon_Menu_ThongTinNguoiDung.svg" />
+    <Resource Include="Images\Icon_Menu_TroGiup%401x.png" />
+    <Resource Include="Images\Icon_Menu_TroGiup%402x.png" />
+    <Resource Include="Images\Icon_Menu_TroGiup%403x.png" />
+    <Content Include="Images\Icon_Menu_TroGiup.svg" />
+    <Resource Include="Images\Icon_Reload.png" />
+    <Resource Include="Images\Icon_Save.png" />
+    <Resource Include="Images\Icon_Show%401x.png" />
+    <Resource Include="Images\Icon_Show%402x.png" />
+    <Content Include="Images\Icon_Show.svg" />
+    <Resource Include="Images\Icon_subtract.png" />
+    <Resource Include="Images\Icon_System_Close%401x.png" />
+    <Resource Include="Images\Icon_System_Close%402x.png" />
+    <Content Include="Images\Icon_System_Close.svg" />
+    <Resource Include="Images\Icon_System_Minimize%401x.png" />
+    <Resource Include="Images\Icon_System_Minimize%402x.png" />
+    <Content Include="Images\Icon_System_Minimize.svg" />
+    <Resource Include="Images\Icon_System_RestoreDown%401x.png" />
+    <Resource Include="Images\Icon_System_RestoreDown%402x.png" />
+    <Content Include="Images\Icon_System_RestoreDown.svg" />
+    <Resource Include="Images\Icon_System_RestoreUp.png" />
+    <Resource Include="Images\Icon_TiepTheo.png" />
+    <Resource Include="Images\Icon_v3_DanhMucDuLieu_Green.png" />
+    <Resource Include="Images\Icon_v3_DanhMucDuLieu_White.png" />
+    <Resource Include="Images\Icon_v3_HeThong_Green.png" />
+    <Resource Include="Images\Icon_v3_HeThong_White.png" />
+    <Resource Include="Images\Icon_v3_Info_Green.png" />
+    <Resource Include="Images\Icon_v3_Info_White.png" />
+    <Resource Include="Images\Icon_v3_KhoLuuTruCauHoi_Green.png" />
+    <Resource Include="Images\Icon_v3_KhoLuuTruCauHoi_White.png" />
+    <Resource Include="Images\Icon_v3_ThietLapDeThi_Green.png" />
+    <Resource Include="Images\Icon_v3_ThietLapDeThi_White.png" />
+    <Resource Include="Images\Icon_v3_TroGiup_Green.png" />
+    <Resource Include="Images\Icon_v3_TroGiup_White.png" />
+    <Resource Include="Images\Icon_Xuat.png" />
+    <Resource Include="Images\Img_Banner%401x.png" />
+    <Resource Include="Images\Img_Banner%402x.png" />
+    <Content Include="Images\Img_Banner.svg" />
+    <Resource Include="Images\Img_Logo%401x.png" />
+    <Resource Include="Images\Img_Logo%401xx.png" />
+    <Resource Include="Images\Img_Logo%402x.png" />
+    <Resource Include="Images\Img_Logo%403x.png" />
+    <Resource Include="Images\Img_Logo%404x.png" />
+    <Resource Include="Images\Img_Logo%405x.png" />
+    <Content Include="Images\Img_Logo.svg" />
+    <Resource Include="Images\Indent.png" />
+    <Resource Include="Images\IndentRemove.png" />
+    <Resource Include="Images\Italic.png" />
+    <Resource Include="Images\justify.png" />
+    <Resource Include="Images\left-arrow.png" />
+    <Resource Include="Images\left-arrow1.png" />
+    <Resource Include="Images\left-arrow_disable.png" />
+    <Resource Include="Images\Login.png" />
+    <Resource Include="Images\Logo.png" />
+    <Content Include="Images\Logo.svg" />
+    <Resource Include="Images\Logo\CSCEdu.EQ.png" />
+    <Content Include="Images\Logo\CSCEdu.EQ.svg" />
+    <Resource Include="Images\Logo\CSCEdu.Lid.png" />
+    <Content Include="Images\Logo\CSCEdu.Lid.svg" />
+    <Resource Include="Images\Logo\CSCEdu.MA.png" />
+    <Content Include="Images\Logo\CSCEdu.MA.svg" />
+    <Resource Include="Images\Logo\CSCEdu.png" />
+    <Content Include="Images\Logo\CSCEdu.svg" />
+    <Resource Include="Images\Logo\CSCEdu.Test.png" />
+    <Content Include="Images\Logo\CSCEdu.Test.svg" />
+    <Resource Include="Images\Logo\CSCEdu.Web.png" />
+    <Content Include="Images\Logo\CSCEdu.Web.svg" />
+    <Resource Include="Images\Logo\LogoSoanDeThi96.ico" />
+    <Resource Include="Images\MatKhau.png" />
+    <Resource Include="Images\Merge.png" />
+    <Resource Include="Images\Next_Green.png" />
+    <Resource Include="Images\Next_Red.png" />
+    <Resource Include="Images\note.png" />
+    <Resource Include="Images\NumbersList.png" />
+    <Resource Include="Images\Open.png" />
+    <Resource Include="Images\Paper.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\Pencil_Green.png" />
+    <Resource Include="Images\PheDuyet%402x.png" />
+    <Resource Include="Images\PheDuyet%403x.png" />
+    <Resource Include="Images\PheDuyet.png" />
+    <Resource Include="Images\Phone.png" />
+    <Resource Include="Images\PhucHoi.png" />
+    <Resource Include="Images\Picture.png" />
+    <Resource Include="Images\Pin_Gray.png" />
+    <Resource Include="Images\Pin_Gray_Hover.png" />
+    <Resource Include="Images\Pin_Green.png" />
+    <Resource Include="Images\Pin_Green_Hover.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\Question.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\Refresh.png" />
+    <Resource Include="Images\right-arrow.png" />
+    <Resource Include="Images\right-arrow1.png" />
+    <Resource Include="Images\right-arrow_disable.png" />
+    <Resource Include="Images\SaoLuu.png" />
+    <Resource Include="Images\Scroll_v.png" />
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\server.png" />
+    <Resource Include="Images\Shadow.png" />
+    <Resource Include="Images\sort.png" />
+    <Resource Include="Images\Strikeout.png" />
+    <Resource Include="Images\Subscript.png" />
+    <Resource Include="Images\Superscript.png" />
+    <Resource Include="Images\TaoCauTrucDeTracNghiem_Green_50X40.png" />
+    <Resource Include="Images\TaoCauTrucDeTracNghiem_Red_50X40.png" />
+    <Resource Include="Images\TaoCauTrucHonHop_Green_50x40.png" />
+    <Resource Include="Images\TaoCauTrucHonHop_Red_50x40.png" />
+    <Resource Include="Images\TaoDeThiNangCao.png" />
+    <Resource Include="Images\TaoDeThiNangCao_Red.png" />
+    <Resource Include="Images\TaoDeThiThuCong.png" />
+    <Resource Include="Images\TaoDeThiThuCong_Red.png" />
+    <Resource Include="Images\TaoDeThiTuDong.png" />
+    <Resource Include="Images\TaoDeThiTuDong_Red.png" />
+    <Resource Include="Images\TaoDeThiTuTapTinVanBan.png" />
+    <Resource Include="Images\TaoDeThiTuTapTinVanBan_Red.png" />
+    <Resource Include="Images\Template.png" />
+    <Resource Include="Images\test.png" />
+    <Resource Include="Images\Test2.png" />
+    <Resource Include="Images\Test3.png" />
+    <Resource Include="Images\text-document-cancel-button.png" />
+    <Resource Include="Images\Textcolor.png" />
+    <Resource Include="Images\ThongTinCaNhan.png" />
+    <Resource Include="Images\ThongTinPhanMem.png" />
+    <Resource Include="Images\TiepTuc.png" />
+    <Resource Include="Images\ToolWindow_Exit_Green.png" />
+    <Resource Include="Images\ToolWindow_Exit_Red.png" />
+    <Resource Include="Images\ToolWindow_FullScreen_Green.png" />
+    <Resource Include="Images\ToolWindow_FullScreen_Red.png" />
+    <Resource Include="Images\ToolWindow_Line_Green.png" />
+    <Resource Include="Images\ToolWindow_Line_Red.png" />
+    <Resource Include="Images\ToolWindow_NormalScreen_Green.png" />
+    <Resource Include="Images\ToolWindow_NormalScreen_Red.png" />
+    <Resource Include="Images\trash.png" />
+    <Resource Include="Images\Trash_Red.png" />
+    <Resource Include="Images\TroVe.png" />
+    <Resource Include="Images\Underline.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\white.png" />
+    <Resource Include="Images\^B886C1417EE0F1B80F02469CA34516F4DEB0DC194A07F8C72B^pimgpsh_fullsize_distr.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net40\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.108.0\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DienMayThanhDanhModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;H:\Freelancer Project\DienMayThanhDanh\DienMay\DienMay\bin\Debug\Data\Database\DienMayThanhDanh.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHITIETMUAHANG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdKhachHang" Type="integer" />
+          <Property Name="IdMuaHang" Type="integer" />
+          <Property Name="SoTienConLai" Type="real" />
+          <Property Name="ChuoiNgayTra" Type="decimal" Precision="53" Scale="0" />
+          <Property Name="NgayTra" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DaHoanThanh" Type="integer" />
+        </EntityType>
+        <EntityType Name="HINHTHUC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHinhThuc" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="KHACHANG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenKhachHang" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TenNguoiBaoLanh" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="IdTrangThai" Type="integer" />
+        </EntityType>
+        <EntityType Name="MUAHANG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdKhachHang" Type="integer" />
+          <Property Name="ChuoiNgayMua" Type="decimal" Precision="53" Scale="0" />
+          <Property Name="NgayMua" Type="real" />
+          <Property Name="TenSanPham" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="GiaSanPham" Type="real" />
+          <Property Name="TraTruoc" Type="real" />
+          <Property Name="ConLai" Type="real" />
+          <Property Name="SoThangTra" Type="integer" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="TRANGTHAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTrangThai" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityContainer Name="DienMayThanhDanhModelStoreContainer">
+          <EntitySet Name="CHITIETMUAHANG" EntityType="Self.CHITIETMUAHANG" store:Type="Tables" />
+          <EntitySet Name="HINHTHUC" EntityType="Self.HINHTHUC" store:Type="Tables" />
+          <EntitySet Name="KHACHANG" EntityType="Self.KHACHANG" store:Type="Tables" />
+          <EntitySet Name="MUAHANG" EntityType="Self.MUAHANG" store:Type="Tables" />
+          <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" store:Type="Tables" />
+          <EntitySet Name="TRANGTHAI" EntityType="Self.TRANGTHAI" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DienMayThanhDanhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHITIETMUAHANG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdKhachHang" Type="Int64" />
+          <Property Name="IdMuaHang" Type="Int64" />
+          <Property Name="SoTienConLai" Type="Double" />
+          <Property Name="ChuoiNgayTra" Type="Decimal" Precision="53" Scale="0" />
+          <Property Name="NgayTra" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DaHoanThanh" Type="Int64" />
+        </EntityType>
+        <EntityType Name="HINHTHUC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHinhThuc" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KHACHANG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKhachHang" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TenNguoiBaoLanh" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="IdTrangThai" Type="Int64" />
+        </EntityType>
+        <EntityType Name="MUAHANG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdKhachHang" Type="Int64" />
+          <Property Name="ChuoiNgayMua" Type="Decimal" Precision="53" Scale="0" />
+          <Property Name="NgayMua" Type="Double" />
+          <Property Name="TenSanPham" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="GiaSanPham" Type="Double" />
+          <Property Name="TraTruoc" Type="Double" />
+          <Property Name="ConLai" Type="Double" />
+          <Property Name="SoThangTra" Type="Int64" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaiKhoan1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRANGTHAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTrangThai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DienMayThanhDanhEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHITIETMUAHANGs" EntityType="Self.CHITIETMUAHANG" />
+          <EntitySet Name="HINHTHUCs" EntityType="Self.HINHTHUC" />
+          <EntitySet Name="KHACHANGs" EntityType="Self.KHACHANG" />
+          <EntitySet Name="MUAHANGs" EntityType="Self.MUAHANG" />
+          <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+          <EntitySet Name="TRANGTHAIs" EntityType="Self.TRANGTHAI" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DienMayThanhDanhModelStoreContainer" CdmEntityContainer="DienMayThanhDanhEntities">
+          <EntitySetMapping Name="CHITIETMUAHANGs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.CHITIETMUAHANG">
+              <MappingFragment StoreEntitySet="CHITIETMUAHANG">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdKhachHang" ColumnName="IdKhachHang" />
+                <ScalarProperty Name="IdMuaHang" ColumnName="IdMuaHang" />
+                <ScalarProperty Name="SoTienConLai" ColumnName="SoTienConLai" />
+                <ScalarProperty Name="ChuoiNgayTra" ColumnName="ChuoiNgayTra" />
+                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+                <ScalarProperty Name="DaHoanThanh" ColumnName="DaHoanThanh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HINHTHUCs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.HINHTHUC">
+              <MappingFragment StoreEntitySet="HINHTHUC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenHinhThuc" ColumnName="TenHinhThuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHANGs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.KHACHANG">
+              <MappingFragment StoreEntitySet="KHACHANG">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenNguoiBaoLanh" ColumnName="TenNguoiBaoLanh" />
+                <ScalarProperty Name="IdTrangThai" ColumnName="IdTrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUAHANGs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.MUAHANG">
+              <MappingFragment StoreEntitySet="MUAHANG">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdKhachHang" ColumnName="IdKhachHang" />
+                <ScalarProperty Name="ChuoiNgayMua" ColumnName="ChuoiNgayMua" />
+                <ScalarProperty Name="NgayMua" ColumnName="NgayMua" />
+                <ScalarProperty Name="TenSanPham" ColumnName="TenSanPham" />
+                <ScalarProperty Name="GiaSanPham" ColumnName="GiaSanPham" />
+                <ScalarProperty Name="TraTruoc" ColumnName="TraTruoc" />
+                <ScalarProperty Name="ConLai" ColumnName="ConLai" />
+                <ScalarProperty Name="SoThangTra" ColumnName="SoThangTra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAIKHOANs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.TAIKHOAN">
+              <MappingFragment StoreEntitySet="TAIKHOAN">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TaiKhoan1" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANGTHAIs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.TRANGTHAI">
+              <MappingFragment StoreEntitySet="TRANGTHAI">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenTrangThai" ColumnName="TenTrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
