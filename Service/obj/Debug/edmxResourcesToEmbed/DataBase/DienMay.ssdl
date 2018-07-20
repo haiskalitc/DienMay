@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DienMayThanhDanhModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;H:\Freelancer Project\DienMayThanhDanh\DienMay\DienMay\bin\Debug\Data\Database\DienMayThanhDanh.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHITIETMUAHANG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdKhachHang" Type="integer" />
+    <Property Name="IdMuaHang" Type="integer" />
+    <Property Name="SoTienConLai" Type="real" />
+    <Property Name="ChuoiNgayTra" Type="decimal" Precision="53" Scale="0" />
+    <Property Name="NgayTra" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="DaHoanThanh" Type="integer" />
+  </EntityType>
+  <EntityType Name="HINHTHUC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHinhThuc" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityType Name="KHACHANG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="TenNguoiBaoLanh" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="IdTrangThai" Type="integer" />
+  </EntityType>
+  <EntityType Name="MUAHANG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdKhachHang" Type="integer" />
+    <Property Name="ChuoiNgayMua" Type="decimal" Precision="53" Scale="0" />
+    <Property Name="NgayMua" Type="real" />
+    <Property Name="TenSanPham" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="GiaSanPham" Type="real" />
+    <Property Name="TraTruoc" Type="real" />
+    <Property Name="ConLai" Type="real" />
+    <Property Name="SoThangTra" Type="integer" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaiKhoan" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityType Name="TRANGTHAI">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTrangThai" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityContainer Name="DienMayThanhDanhModelStoreContainer">
+    <EntitySet Name="CHITIETMUAHANG" EntityType="Self.CHITIETMUAHANG" store:Type="Tables" />
+    <EntitySet Name="HINHTHUC" EntityType="Self.HINHTHUC" store:Type="Tables" />
+    <EntitySet Name="KHACHANG" EntityType="Self.KHACHANG" store:Type="Tables" />
+    <EntitySet Name="MUAHANG" EntityType="Self.MUAHANG" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" store:Type="Tables" />
+    <EntitySet Name="TRANGTHAI" EntityType="Self.TRANGTHAI" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

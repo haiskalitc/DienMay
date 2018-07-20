@@ -1,0 +1,14 @@
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\Service.exe.config
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\Service.exe
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\Service.pdb
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\EntityFramework.dll
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\EntityFramework.SqlServer.dll
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\System.Data.SQLite.dll
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\System.Data.SQLite.EF6.dll
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\System.Data.SQLite.Linq.dll
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\EntityFramework.xml
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\EntityFramework.SqlServer.xml
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\bin\Debug\System.Data.SQLite.xml
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\obj\Debug\Service.exe
+H:\Freelancer Project\DienMayThanhDanh\DienMay\Service\obj\Debug\Service.pdb

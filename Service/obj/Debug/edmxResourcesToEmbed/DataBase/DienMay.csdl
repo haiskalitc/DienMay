@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DienMayThanhDanhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHITIETMUAHANG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdKhachHang" Type="Int64" />
+    <Property Name="IdMuaHang" Type="Int64" />
+    <Property Name="SoTienConLai" Type="Double" />
+    <Property Name="ChuoiNgayTra" Type="Decimal" Precision="53" Scale="0" />
+    <Property Name="NgayTra" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="DaHoanThanh" Type="Int64" />
+  </EntityType>
+  <EntityType Name="HINHTHUC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHinhThuc" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="KHACHANG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TenNguoiBaoLanh" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="IdTrangThai" Type="Int64" />
+  </EntityType>
+  <EntityType Name="MUAHANG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdKhachHang" Type="Int64" />
+    <Property Name="ChuoiNgayMua" Type="Decimal" Precision="53" Scale="0" />
+    <Property Name="NgayMua" Type="Double" />
+    <Property Name="TenSanPham" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="GiaSanPham" Type="Double" />
+    <Property Name="TraTruoc" Type="Double" />
+    <Property Name="ConLai" Type="Double" />
+    <Property Name="SoThangTra" Type="Int64" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaiKhoan1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TRANGTHAI">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTrangThai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DienMayThanhDanhEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETMUAHANGs" EntityType="Self.CHITIETMUAHANG" />
+    <EntitySet Name="HINHTHUCs" EntityType="Self.HINHTHUC" />
+    <EntitySet Name="KHACHANGs" EntityType="Self.KHACHANG" />
+    <EntitySet Name="MUAHANGs" EntityType="Self.MUAHANG" />
+    <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+    <EntitySet Name="TRANGTHAIs" EntityType="Self.TRANGTHAI" />
+  </EntityContainer>
+</Schema>
