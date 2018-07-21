@@ -90,6 +90,7 @@
     <Compile Include="ViewModel\BanTraGopMainViewModel.cs" />
     <Compile Include="ViewModel\Base\BaseNotifyPropertyChange.cs" />
     <Compile Include="ViewModel\Base\NotifiableCollection.cs" />
+    <Compile Include="ViewModel\XuLyChung.cs" />
     <Page Include="DungChung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

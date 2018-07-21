@@ -12,7 +12,7 @@ namespace Service.DataBase
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class DienMayThanhDanhEntities : DbContext
     {
         private static string Config = "metadata=res://*/DataBase.DienMay.csdl|"
@@ -39,6 +39,8 @@ System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\Data\\Backups\\
         {
             throw new UnintentionalCodeFirstException();
         }
+
+
 
         public virtual DbSet<CHITIETMUAHANG> CHITIETMUAHANGs { get; set; }
         public virtual DbSet<HINHTHUC> HINHTHUCs { get; set; }

@@ -16,12 +16,12 @@ namespace Service.DataBase
     {
         public long Id { get; set; }
         public long IdKhachHang { get; set; }
-        public decimal ChuoiNgayMua { get; set; }
-        public double NgayMua { get; set; }
+        public string ChuoiNgayMua { get; set; }
+        public long NgayMua { get; set; }
         public string TenSanPham { get; set; }
-        public double GiaSanPham { get; set; }
-        public double TraTruoc { get; set; }
-        public double ConLai { get; set; }
+        public long GiaSanPham { get; set; }
+        public long TraTruoc { get; set; }
+        public long ConLai { get; set; }
         public long SoThangTra { get; set; }
     }
 }

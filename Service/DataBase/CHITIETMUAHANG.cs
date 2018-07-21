@@ -17,9 +17,9 @@ namespace Service.DataBase
         public long Id { get; set; }
         public long IdKhachHang { get; set; }
         public long IdMuaHang { get; set; }
-        public double SoTienConLai { get; set; }
-        public decimal ChuoiNgayTra { get; set; }
-        public string NgayTra { get; set; }
+        public long SoTienConLai { get; set; }
+        public string ChuoiNgayTra { get; set; }
+        public long NgayTra { get; set; }
         public long DaHoanThanh { get; set; }
     }
 }

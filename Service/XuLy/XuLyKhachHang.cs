@@ -32,11 +32,34 @@ namespace Service.XuLy
         public KHACHANG DocTheoId(long id)
         {
             KHACHANG kh = db.KHACHANGs.FirstOrDefault(model => model.Id.Equals(id));
-            if(kh!=null)
+            if (kh != null)
             {
                 return kh;
             }
             return null;
+        }
+        public bool ThemKhachHang(KHACHANG kh)
+        {
+            if (kh != null)
+            {
+                try
+                {
+                    db.KHACHANGs.Add(kh);
+                    if (db.SaveChanges() >= 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return false;
         }
     }
 }

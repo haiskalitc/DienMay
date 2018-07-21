@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -20,11 +21,16 @@ namespace DienMay
     /// 
     public partial class MainView : Window
     {
+        BrushConverter bc = new BrushConverter();
         public event EventHandler QuayLai;
         public MainView()
         {
             InitializeComponent();
-            Content.Children.Add(new MainBanTraGop());
+            Content.Children.Add(new MainBanTraGop(this));
+            banHangTraGop.Background = (System.Windows.Media.Brush)bc.ConvertFrom("#014d71");
+            banHangText.Foreground = System.Windows.Media.Brushes.White;
+            choVayText.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#014d71");
+            choVay.Background = (System.Windows.Media.Brush)bc.ConvertFrom("#ecf6fd");
         }
 
         private void btnDong_Click(object sender, RoutedEventArgs e)
@@ -38,11 +44,17 @@ namespace DienMay
             if (main != null)
             {
                 // Đang la ban hang tra gop
+
             }
             else
             {
                 Content.Children.Clear();
-                Content.Children.Add(new MainBanTraGop());
+                Content.Children.Add(new MainBanTraGop(this));
+                banHangTraGop.Background = (System.Windows.Media.Brush)bc.ConvertFrom("#014d71");
+                banHangText.Foreground = System.Windows.Media.Brushes.White;
+                choVayText.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#014d71");
+                choVay.Background = (System.Windows.Media.Brush)bc.ConvertFrom("#ecf6fd");
+                
             }
         }
 
@@ -52,11 +64,14 @@ namespace DienMay
             if (main != null)
             {
                 Content.Children.Clear();
-                Content.Children.Add(new MainChoVay());
+                Content.Children.Add(new MainChoVay(this));
+                choVay.Background = (System.Windows.Media.Brush)bc.ConvertFrom("#014d71");
+                banHangText.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#014d71");
+                choVayText.Foreground = System.Windows.Media.Brushes.White;         
+                banHangTraGop.Background = (System.Windows.Media.Brush)bc.ConvertFrom("#ecf6fd");
             }
             else
             {
-
             }
         }
     }

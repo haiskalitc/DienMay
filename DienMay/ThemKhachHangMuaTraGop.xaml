@@ -103,6 +103,7 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
+                                    Name="txtTenKhachHang"
                          Width="400"
                          Height="30"
                                  FontSize="15"
@@ -120,6 +121,7 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
+                                    Name="txtSoDienThoai"
                          Width="400"
                          Height="30"
                                  FontSize="15"
@@ -144,6 +146,7 @@
                            Width="400"></TextBlock>
                                 <TextBox 
                          Width="400"
+                                    Name="txtDiaChi"
                          Height="30"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
@@ -160,6 +163,7 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
+                                    Name="txtTenNguoiBaoLanh"
                          Width="400"
                          Height="30"
                                  FontSize="15"
@@ -177,7 +181,9 @@
                     FontWeight="Medium"
                     Foreground="#1c1c1c" 
                     BorderThickness="0" Margin="10 5 10 0">
-                    <Grid>
+                    <Grid
+                        Name="thongTinMuaHang"
+                        >
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
@@ -202,6 +208,7 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
+                                    Name="txtTenSanPham"
                          Width="400"
                          Height="30"
                                  FontSize="15"
@@ -218,15 +225,17 @@
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
-                                <DatePicker
-                                   
+                                <TextBox
+                                    TextChanged="txtNgayMua_TextChanged"
+                                    Text="0"
+                                   Name="txtNgayMua"
                          Width="400"
                          Height="30"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
                                  HorizontalAlignment="Stretch">
 
-                                </DatePicker>
+                                </TextBox>
 
                             </StackPanel>
                         </Grid>
@@ -259,7 +268,8 @@
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock 
-                                                Text="{Binding TenHinhThuc}"></TextBlock>
+                                                Text="{Binding TenHinhThuc}"
+                                                ></TextBlock>
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
@@ -275,6 +285,10 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
+                                    MaxLength="2"
+                                    Text="0"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    Name="txtSoThangPhaiTra"
                          Width="400"
                          Height="30"
                                  FontSize="15"
@@ -298,8 +312,13 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
+                                    MaxLength="12"
+                                    TextChanged="txtGiaSanPham_TextChanged"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    Name="txtGiaSanPham"
                          Width="400"
                          Height="30"
+                                                                        Text="0"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
                                  HorizontalAlignment="Stretch"></TextBox>
@@ -315,8 +334,13 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
+                                    MaxLength="12"
+                                    TextChanged="txtDaTraTruoc_TextChanged"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    Name="txtDaTraTruoc"
                          Width="400"
                          Height="30"
+                               Text="0"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
                                  HorizontalAlignment="Stretch"></TextBox>
@@ -339,9 +363,11 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
-                         Width="400"
-                         Height="30"
-                                 FontSize="15"
+                                    Name="txtConNo"
+                                    Width="400"
+                                    IsReadOnly="True"
+                                    Height="30"
+                                    FontSize="15"
                                      Foreground="#1c1c1c"
                                  HorizontalAlignment="Stretch"></TextBox>
 
@@ -350,6 +376,7 @@
                         </Grid>
                         <Button Name="btnXacNhan"
                                 Grid.Row="4"
+                                Click="btnXacNhan_Click"
                         Style="{DynamicResource MyButton}"
                       
                         Height="30" Width="110"

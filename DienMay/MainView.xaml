@@ -98,6 +98,7 @@
                                     <StackPanel Orientation="Horizontal">
                 
                                         <TextBlock 
+                                            Name="banHangText"
                                             FontSize="20"
                                             VerticalAlignment="Center">Bán hàng</TextBlock>
                                     </StackPanel>
@@ -117,6 +118,7 @@
                                         FontSize="14">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock VerticalAlignment="Center" 
+                                                   Name="choVayText"
                                               FontSize="20" >Cho vay</TextBlock>
                                     </StackPanel>
                                 </Button>

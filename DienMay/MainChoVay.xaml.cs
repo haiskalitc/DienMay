@@ -19,9 +19,16 @@ namespace DienMay
     /// </summary>
     public partial class MainChoVay : UserControl
     {
+        private MainView mainView;
+
         public MainChoVay()
         {
             InitializeComponent();
+        }
+
+        public MainChoVay(MainView mainView)
+        {
+            this.mainView = mainView;
         }
     }
 }

@@ -48,6 +48,30 @@ namespace Service.XuLy
             }
             return null;
         }
-
+        public bool ThemMuaHang(MUAHANG mh)
+        {
+            if (mh != null)
+            {
+                try
+                {
+                    db.MUAHANGs.Add(mh);
+                    if (db.SaveChanges() >= 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
     }
+
 }
+

@@ -27,31 +27,39 @@ namespace DienMay
         private enum PagingMode { First = 1, Next = 2, Previous = 3, Last = 4, PageCountChange = 5 };
         NotifiableCollection<BanTraGopMainViewModel> danhSachKhacHang = new NotifiableCollection<BanTraGopMainViewModel>();
         NotifiableCollection<BanTraGopMainViewModel> danhSachKhacHangPhanTrang = new NotifiableCollection<BanTraGopMainViewModel>();
+        private MainView mainView;
 
-        public MainBanTraGop()
+        public MainBanTraGop(MainView mainView)
         {
             InitializeComponent();
+            this.mainView = mainView;
             try
             {
                 LayDuLieu(danhSachKhacHang);
-                danhSachKhacHangPhanTrang = (NotifiableCollection<BanTraGopMainViewModel>)danhSachKhacHang.Take(numberOfRecPerPage);
+
+                danhSachKhacHangPhanTrang.Clear();
+                danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
+
             }
             catch (Exception)
             {
             }
             finally
             {
-                if (this.lsvKhachHang.DataContext != null)
+                if (this.lsvKhachHang.DataContext == null)
                 {
                     this.lsvKhachHang.DataContext = danhSachKhacHangPhanTrang;
                 }
             }
 
         }
+
+  
         public void LayDuLieu(NotifiableCollection<BanTraGopMainViewModel> ds)
         {
             try
             {
+                ds.Clear();
                 XuLyKhachHang.getInstance.DocDanhSachTatCa().ForEach(model =>
                     ds.Add(new BanTraGopMainViewModel(model,
                     XuLyTrangThai.getInstance.DocTheoId(model.IdTrangThai),
@@ -85,16 +93,18 @@ namespace DienMay
                         if (danhSachKhacHang.Skip(pageIndex *
                         numberOfRecPerPage).Take(numberOfRecPerPage).Count() == 0)
                         {
-                            danhSachKhacHangPhanTrang = (NotifiableCollection<BanTraGopMainViewModel>)danhSachKhacHang.Skip((pageIndex *
-                            numberOfRecPerPage) - numberOfRecPerPage).Take(numberOfRecPerPage);
+                            danhSachKhacHangPhanTrang.Clear();
+                            danhSachKhacHang.Skip((pageIndex *
+                            numberOfRecPerPage) - numberOfRecPerPage).Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
                             count = (pageIndex * numberOfRecPerPage) +
                             (danhSachKhacHang.Skip(pageIndex *
                             numberOfRecPerPage).Take(numberOfRecPerPage)).Count();
                         }
                         else
                         {
-                            danhSachKhacHangPhanTrang = (NotifiableCollection<BanTraGopMainViewModel>)danhSachKhacHang.Skip(pageIndex *
-                            numberOfRecPerPage).Take(numberOfRecPerPage);
+                            danhSachKhacHangPhanTrang.Clear();
+                            danhSachKhacHang.Skip(pageIndex *
+                            numberOfRecPerPage).Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
                             count = (pageIndex * numberOfRecPerPage) +
                             (danhSachKhacHang.Skip(pageIndex *
                             numberOfRecPerPage).Take(numberOfRecPerPage)).Count();
@@ -121,20 +131,23 @@ namespace DienMay
                         pageIndex -= 1;
                         if (pageIndex == 1)
                         {
-                            danhSachKhacHangPhanTrang = (NotifiableCollection<BanTraGopMainViewModel>)danhSachKhacHang.Take(numberOfRecPerPage);
+                            danhSachKhacHangPhanTrang.Clear();
+                           danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
                             count = danhSachKhacHang.Take(numberOfRecPerPage).Count();
                             lblpageInformation.Text = count + "/" + danhSachKhacHang.Count;
                         }
                         else
                         {
-                            danhSachKhacHangPhanTrang = (NotifiableCollection<BanTraGopMainViewModel>)danhSachKhacHang.Skip
-                            ((pageIndex - 1) * numberOfRecPerPage).Take(numberOfRecPerPage);
+                            danhSachKhacHangPhanTrang.Clear();
+                            danhSachKhacHang.Skip
+                            ((pageIndex - 1) * numberOfRecPerPage).Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
                             count = Math.Min(pageIndex * numberOfRecPerPage, danhSachKhacHang.Count);
                             lblpageInformation.Text = count + "/" + danhSachKhacHang.Count;
                         }
                         if (pageIndex <= 1)
                         {
-                            danhSachKhacHangPhanTrang = (NotifiableCollection<BanTraGopMainViewModel>)danhSachKhacHang.Take(numberOfRecPerPage);
+                            danhSachKhacHangPhanTrang.Clear();
+                           danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
                             count = danhSachKhacHang.Take(numberOfRecPerPage).Count();
                             lblpageInformation.Text = count + "/" + danhSachKhacHang.Count;
                             btnPrev.Visibility = Visibility.Hidden;
@@ -159,5 +172,21 @@ namespace DienMay
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ThemKhachHangMuaTraGop themBanHang = new ThemKhachHangMuaTraGop();
+            themBanHang.Show();
+            mainView.Hide();
+            themBanHang.QuayLai += ThemBanHang_QuayLai;
+            
+        }
+
+        private void ThemBanHang_QuayLai(object sender, EventArgs e)
+        {
+            LayDuLieu(danhSachKhacHang);
+            Navigate((int)PagingMode.Last);
+            mainView.Show();
+            (sender as ThemKhachHangMuaTraGop).Close();
+        }
     }
 }
