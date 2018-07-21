@@ -59,6 +59,8 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.108.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -76,6 +78,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DungChung.xaml.cs">
+      <DependentUpon>DungChung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainChoVay.xaml.cs">
+      <DependentUpon>MainChoVay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThemKhachHangMuaTraGop.xaml.cs">
+      <DependentUpon>ThemKhachHangMuaTraGop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BanTraGopMainViewModel.cs" />
+    <Compile Include="ViewModel\Base\BaseNotifyPropertyChange.cs" />
+    <Compile Include="ViewModel\Base\NotifiableCollection.cs" />
+    <Page Include="DungChung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,6 +105,14 @@
     <Compile Include="LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Page Include="MainBanTraGop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainChoVay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,8 +121,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ThemKhachHangMuaTraGop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainBanTraGop.xaml.cs">
+      <DependentUpon>MainBanTraGop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -127,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Template\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">

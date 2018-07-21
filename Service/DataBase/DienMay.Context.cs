@@ -16,8 +16,8 @@ namespace Service.DataBase
     public partial class DienMayThanhDanhEntities : DbContext
     {
         private static string Config = "metadata=res://*/DataBase.DienMay.csdl|"
-                   + "res://*/DataBase.DienMay.ssdl|res://*/DataBase.DienMay.msl;" +
-                   "provider=System.Data.SQLite.EF6;provider connection string=data source=";
+            + "res://*/DataBase.DienMay.ssdl|res://*/DataBase.DienMay.msl;" +
+            "provider=System.Data.SQLite.EF6;provider connection string=data source=";
         public static string startupPath = System.IO.Path.GetDirectoryName(
 System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\Data\\Database\\DienMayThanhDanh.db;";
         public static string startupPathBackup = System.IO.Path.GetDirectoryName(

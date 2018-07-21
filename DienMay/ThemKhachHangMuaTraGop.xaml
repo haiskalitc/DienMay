@@ -1,0 +1,377 @@
+﻿<Window x:Class="DienMay.ThemKhachHangMuaTraGop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DienMay"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Height="720" Width="1020"
+        WindowStyle="None"   
+        ResizeMode="CanResizeWithGrip"
+        Name="Windown">
+    <Border Margin="-3" BorderThickness="1" BorderBrush="#4189eb" CornerRadius="10">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="9*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" 
+                VerticalAlignment="Top"
+                BorderBrush="#014d71"
+                BorderThickness="0.25"
+                Panel.ZIndex="1"></Border>
+            <Border Grid.Row="1" 
+                VerticalAlignment="Bottom"
+                BorderBrush="#014d71"
+                BorderThickness="0.25"
+                Panel.ZIndex="1"></Border>
+            <Grid Background="#ecf6fd">
+                <DockPanel HorizontalAlignment="Left" Width="1016">
+                    <Button BorderThickness="0" 
+                                x:Name="btnDong"  HorizontalAlignment="Right"  
+                                    Click="btnDong_Click" DockPanel.Dock="Right" 
+                                Height="30" Width="30" 
+                            Style="{DynamicResource CloseButton}"
+                                     BorderBrush="Transparent"
+                                VerticalAlignment="Top" Margin="0 7 18 0">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image Name="img" Source="Images/3.png"></Image>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter TargetName="img" Property="Source"
+                                                    Value="Images/3_bg.png"></Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Grid DockPanel.Dock="Right" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="15*"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </DockPanel>
+                <StackPanel Margin="30 0 0 0" VerticalAlignment="Center" 
+                            Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center" 
+                               Foreground="#014d71"
+                               FontWeight="Bold" 
+                               Text="ĐIỆN MÁY THÀNH DANH" 
+                               FontSize="30"></TextBlock>
+
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="6.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <GroupBox  
+                    Grid.Row="0"
+                    Header="Thông tin khách hàng"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Foreground="#1c1c1c" 
+                      BorderThickness="0" Margin="10 5 10 0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="0"
+                        Orientation="Vertical">
+                                <TextBlock Text="Tên khách hàng: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="1"
+                        Orientation="Vertical">
+                                <TextBlock Text="Số điện thoại:"  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="0"
+                        Orientation="Vertical">
+                                <TextBlock Text="Địa chỉ: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="1"
+                        Orientation="Vertical">
+                                <TextBlock Text="Tên người bảo lãnh: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+                <GroupBox  
+                    Grid.Row="1"
+                    Header="Thông tin mua hàng"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Foreground="#1c1c1c" 
+                    BorderThickness="0" Margin="10 5 10 0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="0"
+                        Orientation="Vertical">
+                                <TextBlock Text="Tên sản phẩm:"  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="1"
+                        Orientation="Vertical">
+                                <TextBlock Text="Ngày mua:"  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <DatePicker
+                                   
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch">
+
+                                </DatePicker>
+
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                Name="dataHinhThucMua"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="0"
+                        Orientation="Vertical">
+                                <TextBlock Text="Hình thức mua: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <ComboBox 
+                                    Name="cbbHinhThucMua"
+                                    SelectedIndex="0"
+                                ItemsSource="{Binding}"
+                                    SelectionChanged="ComboBox_SelectionChanged"
+                         Width="400"
+                         Height="30"
+                                    SelectedValuePath="Id"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                                Text="{Binding TenHinhThuc}"></TextBlock>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                            </StackPanel>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="1"
+                        Orientation="Vertical">
+                                <TextBlock Text="Số tháng phải trả: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="0"
+                        Orientation="Vertical">
+                                <TextBlock Text="Giá sản phẩm: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="1"
+                        Orientation="Vertical">
+                                <TextBlock Text="Đã trả trước: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="0"
+                        Orientation="Vertical">
+                                <TextBlock Text="Còn nợ: "  
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                         Width="400"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Stretch"></TextBox>
+
+                            </StackPanel>
+
+                        </Grid>
+                        <Button Name="btnXacNhan"
+                                Grid.Row="4"
+                        Style="{DynamicResource MyButton}"
+                      
+                        Height="30" Width="110"
+                        FontSize="15"
+                        Margin="0 0 10 0"
+                        Background="#014d71">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="XÁC NHẬN"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"></TextBlock>
+                            </StackPanel>
+
+                        </Button>
+                    </Grid>
+
+                </GroupBox>
+            </Grid>
+            <Grid Grid.Row="2"
+                  Background="#ecf6fd">
+
+            </Grid>
+        </Grid>
+    </Border>
+
+</Window>

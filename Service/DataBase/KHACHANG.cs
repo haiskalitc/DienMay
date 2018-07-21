@@ -19,6 +19,6 @@ namespace Service.DataBase
         public string SoDienThoai { get; set; }
         public string DiaChi { get; set; }
         public string TenNguoiBaoLanh { get; set; }
-        public Nullable<long> IdTrangThai { get; set; }
+        public long IdTrangThai { get; set; }
     }
 }

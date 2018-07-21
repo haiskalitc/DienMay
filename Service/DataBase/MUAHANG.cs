@@ -15,13 +15,13 @@ namespace Service.DataBase
     public partial class MUAHANG
     {
         public long Id { get; set; }
-        public Nullable<long> IdKhachHang { get; set; }
-        public Nullable<decimal> ChuoiNgayMua { get; set; }
-        public Nullable<double> NgayMua { get; set; }
+        public long IdKhachHang { get; set; }
+        public decimal ChuoiNgayMua { get; set; }
+        public double NgayMua { get; set; }
         public string TenSanPham { get; set; }
-        public Nullable<double> GiaSanPham { get; set; }
-        public Nullable<double> TraTruoc { get; set; }
-        public Nullable<double> ConLai { get; set; }
-        public Nullable<long> SoThangTra { get; set; }
+        public double GiaSanPham { get; set; }
+        public double TraTruoc { get; set; }
+        public double ConLai { get; set; }
+        public long SoThangTra { get; set; }
     }
 }

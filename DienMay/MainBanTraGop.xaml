@@ -1,0 +1,325 @@
+﻿<UserControl x:Class="DienMay.MainBanTraGop"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DienMay"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024"
+             >
+    <Grid>
+        <ScrollViewer
+            CanContentScroll="True"
+                                  VerticalScrollBarVisibility="Auto">
+            <Grid Name="Content">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <StackPanel
+                                    Orientation="Vertical"
+                                    Grid.Row="0">
+                        <TextBlock
+                                        Foreground="#014d71"
+                                        FontWeight="Bold"
+                                        Text="Danh sách khách hàng: " Margin="16 16 16 0"
+                                        FontSize="13">
+                        </TextBlock>
+                        <Border Style="{DynamicResource BoTron_Border}" Margin="16 8 16 0">
+                            <DataGrid IsReadOnly="True"
+                                                  HeadersVisibility="Column"
+                                                  Margin="0.6"
+                                                  SelectionMode="Extended"
+                                                  Background="Transparent"
+                                                  GridLinesVisibility="None"
+                                                  BorderBrush="Transparent"
+                                                  Height="auto"
+                                                  Width="auto"                                                
+                                                  Mouse.MouseUp="LsvDanhSachCauHoi_OnSelected"
+                                                  MaxHeight="278"
+                                                  ItemsSource="{Binding}"
+                                                  x:Name="lsvKhachHang"
+                                                  CanUserAddRows="False"
+                                                  FontSize="13" AutoGenerateColumns="False"
+                                                 >
+                                <DataGrid.Columns>
+
+                                    <!--STT-->
+                                    <DataGridTemplateColumn     
+                                                    CanUserSort="True"
+                                                    Width="0.8*"
+                                                    HeaderStyle="{DynamicResource DataGridColumnHeader}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock       
+                                                 
+                                                    IsHitTestVisible="False"
+                                                    Text="{Binding ThongTinKhacHang.Id}"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Padding="5 7.5 5 7.5"
+                                                                Height="30"
+                                                                Foreground="Black"
+                                                                TextTrimming="WordEllipsis"
+                                                                >
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                        <DataGridTemplateColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel
+                                                                
+                                                                Orientation="Vertical"
+                                                                >
+                                                    <TextBlock
+                                                                Text="STT"
+                                                    >
+                                                    </TextBlock>
+                                                  
+                                                </StackPanel>
+
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.HeaderTemplate>
+                                    </DataGridTemplateColumn>
+                                    <!--Ten-->
+                                    <DataGridTemplateColumn Width="2.3*"
+                                                            HeaderStyle="{DynamicResource DataGridColumnHeader}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock       
+                                                 
+                                                    IsHitTestVisible="False"
+                                                    Text="{Binding ThongTinKhacHang.TenKhachHang}"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                                Padding="5 7.5 5 7.5"
+                                                                Height="30"
+                                                                Foreground="Black"
+                                                                TextTrimming="WordEllipsis"
+                                                                >
+
+
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                        <DataGridTemplateColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel
+                                                                Orientation="Vertical"
+                                                                >
+                                                    <TextBlock
+                                                                Text="Tên khách hàng"
+                                                    Name="CheckAll"
+                                                    >
+                                                    </TextBlock>
+
+                                                </StackPanel>
+
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.HeaderTemplate>
+                                    </DataGridTemplateColumn>
+                                    <!--Dia chi-->
+                                    <DataGridTextColumn Width="3*" Binding="{Binding ThongTinKhacHang.DiaChi}" Header="Địa chỉ"
+                                                                HeaderStyle="{DynamicResource DataGridColumnHeader}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="ToolTip" Value="{Binding ThongTinKhacHang.DiaChi}"></Setter>
+                                                <Setter Property="HorizontalAlignment" Value="Left" />
+                                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                                <Setter Property="Padding" Value="5 7.5 5 7.5"></Setter>
+                                                <Setter Property="Height" Value="30"></Setter>
+                                                <Setter Property="Foreground" Value="Black"></Setter>
+                                                <Setter Property="TextTrimming" Value="WordEllipsis"></Setter>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+                                    <!--SDT-->
+                                    <DataGridTemplateColumn Width="1.5*"
+                                                            HeaderStyle="{DynamicResource DataGridColumnHeader}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock       
+                                                 
+                                                    IsHitTestVisible="False"
+                                                    Text="{Binding ThongTinKhachHang.SoDienThoai}"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                                Padding="5 7.5 5 7.5"
+                                                                Height="30"
+                                                                Foreground="Black"
+                                                                TextTrimming="WordEllipsis"
+                                                                >
+
+
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                        <DataGridTemplateColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel
+                                                                Orientation="Vertical"
+                                                                >
+                                                    <TextBlock
+                                                                Text="Số ĐT"
+                                                    Name="CheckAll"
+                                                    >
+                                                    </TextBlock>
+                                                </StackPanel>
+
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.HeaderTemplate>
+                                    </DataGridTemplateColumn>
+                                    <!--Ngay mua-->
+                                    <DataGridTemplateColumn Width="1.5*"
+                                                            HeaderStyle="{DynamicResource DataGridColumnHeader}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock       
+                                                 
+                                                    IsHitTestVisible="False"
+                                                    Text="{Binding ThongTinMuaHang.ChuoiNgayMua}"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                                Padding="5 7.5 5 7.5"
+                                                                Height="30"
+                                                                Foreground="Black"
+                                                                TextTrimming="WordEllipsis"
+                                                                >
+
+
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                        <DataGridTemplateColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel
+                                                                Orientation="Vertical"
+                                                                >
+                                                    <TextBlock
+                                                                Text="Ngày mua"
+                                                    Name="CheckAll"
+                                                    >
+                                                    </TextBlock>
+                                                </StackPanel>
+
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.HeaderTemplate>
+                                    </DataGridTemplateColumn>
+                                    <!--Trang tHAI-->
+                                    <DataGridTemplateColumn Width="1*" 
+                                                            Header="Trang thái"
+                                                            HeaderStyle="{DynamicResource DataGridColumnHeader}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+
+                                                <Grid>
+                  
+                                                    <TextBlock       
+                                                 
+                                                    IsHitTestVisible="False"
+                                                    Text="{Binding TrangThai.TenTrangThai}"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                                Padding="5 7.5 5 7.5"
+                                                                Height="30"
+                                                                Foreground="Black"
+                                                                TextTrimming="WordEllipsis"
+                                                                >
+
+
+                                                    </TextBlock>
+
+                                                </Grid>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Border>
+                        <Grid 
+                                        Margin="0 20 0 0"
+                                      Name="tiem"
+                                            HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Height="20"
+                                                Background="#014d71"
+                                            Grid.Column="0"
+                                            VerticalAlignment="Center" 
+                                            Name="btnPrev" Width="35" Click="btnPrev_Click" >
+                                <Image Source="Images/left-arrow1.png" Height="10" 
+                                                  ></Image>
+
+
+                            </Button>
+                            <Grid Width="80"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Center"
+                                          >
+                                <TextBlock
+                                                FontSize="13"
+                                                x:Name="lblpageInformation"
+                                                   FontWeight="Bold"
+                                                   Foreground="#014d71"
+                                                   HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                            </Grid>
+                            <Button 
+                                            Height="20"
+                                            Background="#014d71"
+                                        Grid.Column="2"
+                                        HorizontalAlignment="Right" 
+                                            Name="btnNext" VerticalAlignment="Center" Width="35" 
+                                            Click="btnNext_Click" >
+                                <Image Source="Images/right-arrow1.png" Height="10"
+                                                   Width="10"
+                                                  ></Image>
+                            </Button>
+
+
+                        </Grid>
+                    </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                                            Grid.Row="0"
+                                            VerticalAlignment="Center"
+                                            Foreground="#014d71" Margin="16 16 0 0"
+                                            Style="{DynamicResource textblock}"
+                                            Text="Các chức năng bổ trợ: "
+                                            FontWeight="Bold"
+                                            FontSize="13" />
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0"
+                                    Margin="20"
+                                    Content="Thêm mới khách hàng"></Button>
+                            <Button Grid.Column="1"
+                                    Margin="20"
+                                    Content="Xem khách hàng sắp tới hạng trả"></Button>
+                        </Grid>
+                    </Grid>
+                  
+
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

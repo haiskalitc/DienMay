@@ -24,6 +24,7 @@ namespace DienMay
         public MainView()
         {
             InitializeComponent();
+            Content.Children.Add(new MainBanTraGop());
         }
 
         private void btnDong_Click(object sender, RoutedEventArgs e)
@@ -31,6 +32,32 @@ namespace DienMay
             QuayLai(this, new EventArgs());
         }
 
+        private void banHangTraGop_Click(object sender, RoutedEventArgs e)
+        {
+            MainBanTraGop main = Content.Children[0] as MainBanTraGop;
+            if (main != null)
+            {
+                // Đang la ban hang tra gop
+            }
+            else
+            {
+                Content.Children.Clear();
+                Content.Children.Add(new MainBanTraGop());
+            }
+        }
 
+        private void choVay_Click(object sender, RoutedEventArgs e)
+        {
+            MainBanTraGop main = Content.Children[0] as MainBanTraGop;
+            if (main != null)
+            {
+                Content.Children.Clear();
+                Content.Children.Add(new MainChoVay());
+            }
+            else
+            {
+
+            }
+        }
     }
 }

@@ -4,65 +4,65 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DienMayThanhDanhModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;H:\Freelancer Project\DienMayThanhDanh\DienMay\DienMay\bin\Debug\Data\Database\DienMayThanhDanh.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DienMayThanhDanhModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=E:\DienMay\DienMay\bin\Debug\Data\Database\DienMayThanhDanh.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHITIETMUAHANG">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdKhachHang" Type="integer" />
-          <Property Name="IdMuaHang" Type="integer" />
-          <Property Name="SoTienConLai" Type="real" />
-          <Property Name="ChuoiNgayTra" Type="decimal" Precision="53" Scale="0" />
-          <Property Name="NgayTra" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="DaHoanThanh" Type="integer" />
+          <Property Name="IdKhachHang" Type="integer" Nullable="false" />
+          <Property Name="IdMuaHang" Type="integer" Nullable="false" />
+          <Property Name="SoTienConLai" Type="real" Nullable="false" />
+          <Property Name="ChuoiNgayTra" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="NgayTra" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="DaHoanThanh" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="HINHTHUC">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenHinhThuc" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TenHinhThuc" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
         <EntityType Name="KHACHANG">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenKhachHang" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="TenNguoiBaoLanh" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="IdTrangThai" Type="integer" />
+          <Property Name="TenKhachHang" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="TenNguoiBaoLanh" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="IdTrangThai" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="MUAHANG">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdKhachHang" Type="integer" />
-          <Property Name="ChuoiNgayMua" Type="decimal" Precision="53" Scale="0" />
-          <Property Name="NgayMua" Type="real" />
-          <Property Name="TenSanPham" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="GiaSanPham" Type="real" />
-          <Property Name="TraTruoc" Type="real" />
-          <Property Name="ConLai" Type="real" />
-          <Property Name="SoThangTra" Type="integer" />
+          <Property Name="IdKhachHang" Type="integer" Nullable="false" />
+          <Property Name="ChuoiNgayMua" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="NgayMua" Type="real" Nullable="false" />
+          <Property Name="TenSanPham" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="GiaSanPham" Type="real" Nullable="false" />
+          <Property Name="TraTruoc" Type="real" Nullable="false" />
+          <Property Name="ConLai" Type="real" Nullable="false" />
+          <Property Name="SoThangTra" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="MatKhau" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
         <EntityType Name="TRANGTHAI">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenTrangThai" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TenTrangThai" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DienMayThanhDanhModelStoreContainer">
           <EntitySet Name="CHITIETMUAHANG" EntityType="Self.CHITIETMUAHANG" store:Type="Tables" />
@@ -82,59 +82,59 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdKhachHang" Type="Int64" />
-          <Property Name="IdMuaHang" Type="Int64" />
-          <Property Name="SoTienConLai" Type="Double" />
-          <Property Name="ChuoiNgayTra" Type="Decimal" Precision="53" Scale="0" />
-          <Property Name="NgayTra" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="DaHoanThanh" Type="Int64" />
+          <Property Name="IdKhachHang" Type="Int64" Nullable="false" />
+          <Property Name="IdMuaHang" Type="Int64" Nullable="false" />
+          <Property Name="SoTienConLai" Type="Double" Nullable="false" />
+          <Property Name="ChuoiNgayTra" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="NgayTra" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DaHoanThanh" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="HINHTHUC">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenHinhThuc" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TenHinhThuc" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="KHACHANG">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenKhachHang" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="SoDienThoai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="DiaChi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="TenNguoiBaoLanh" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="IdTrangThai" Type="Int64" />
+          <Property Name="TenKhachHang" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenNguoiBaoLanh" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdTrangThai" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="MUAHANG">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdKhachHang" Type="Int64" />
-          <Property Name="ChuoiNgayMua" Type="Decimal" Precision="53" Scale="0" />
-          <Property Name="NgayMua" Type="Double" />
-          <Property Name="TenSanPham" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="GiaSanPham" Type="Double" />
-          <Property Name="TraTruoc" Type="Double" />
-          <Property Name="ConLai" Type="Double" />
-          <Property Name="SoThangTra" Type="Int64" />
+          <Property Name="IdKhachHang" Type="Int64" Nullable="false" />
+          <Property Name="ChuoiNgayMua" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="NgayMua" Type="Double" Nullable="false" />
+          <Property Name="TenSanPham" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GiaSanPham" Type="Double" Nullable="false" />
+          <Property Name="TraTruoc" Type="Double" Nullable="false" />
+          <Property Name="ConLai" Type="Double" Nullable="false" />
+          <Property Name="SoThangTra" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TaiKhoan1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="MatKhau" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TaiKhoan1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="TRANGTHAI">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenTrangThai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TenTrangThai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DienMayThanhDanhEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETMUAHANGs" EntityType="Self.CHITIETMUAHANG" />
