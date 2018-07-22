@@ -6,45 +6,33 @@ using System.Text;
 
 namespace Service.XuLy
 {
-    public class XuLyKhachHang
+    public class XuLyChiTietMuaHang
     {
         public DienMayThanhDanhEntities db = new DienMayThanhDanhEntities();
-        private static XuLyKhachHang _instance;
-        public static XuLyKhachHang getInstance
+        private static XuLyChiTietMuaHang _instance;
+        public static XuLyChiTietMuaHang getInstance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new XuLyKhachHang();
+                    _instance = new XuLyChiTietMuaHang();
                 }
                 return _instance;
             }
         }
-        public XuLyKhachHang()
+        public XuLyChiTietMuaHang()
         {
             db = new DienMayThanhDanhEntities();
         }
-        public List<KHACHANG> DocDanhSachTatCa()
+
+        public bool ThemChiTietMuaHang(CHITIETMUAHANG chiTiet)
         {
-            return db.KHACHANGs.ToList();
-        }
-        public KHACHANG DocTheoId(long id)
-        {
-            KHACHANG kh = db.KHACHANGs.FirstOrDefault(model => model.Id.Equals(id));
-            if (kh != null)
-            {
-                return kh;
-            }
-            return null;
-        }
-        public bool ThemKhachHang(KHACHANG kh)
-        {
-            if (kh != null)
+            if (chiTiet != null)
             {
                 try
                 {
-                    db.KHACHANGs.Add(kh);
+                    db.CHITIETMUAHANGs.Add(chiTiet);
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
@@ -61,13 +49,14 @@ namespace Service.XuLy
             }
             return false;
         }
-        public bool XoaKhachHangTheoKhachHang(KHACHANG kh)
+
+        public bool XoaChiTietMuaHang(CHITIETMUAHANG chiTiet)
         {
-            if (kh != null)
+            if (chiTiet != null)
             {
                 try
                 {
-                    db.KHACHANGs.Remove(kh);
+                    db.CHITIETMUAHANGs.Remove(chiTiet);
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
@@ -84,5 +73,7 @@ namespace Service.XuLy
             }
             return false;
         }
+
+
     }
 }

@@ -225,17 +225,23 @@
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
-                                <TextBox
-                                    TextChanged="txtNgayMua_TextChanged"
-                                    Text="0"
+                                <DatePicker
+                                    
+                                    IsTodayHighlighted="True"
+                                    Language="vi"
                                    Name="txtNgayMua"
                          Width="400"
                          Height="30"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
                                  HorizontalAlignment="Stretch">
-
-                                </TextBox>
+                                    <DatePicker.Resources>
+                                        <Style TargetType="DatePickerTextBox">
+                                            <Setter Property="Text" Value="Chọn ngày" />
+                                        </Style>
+                       
+                                    </DatePicker.Resources>
+                                </DatePicker>
 
                             </StackPanel>
                         </Grid>

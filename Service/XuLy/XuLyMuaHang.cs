@@ -71,6 +71,29 @@ namespace Service.XuLy
             }
             return false;
         }
+        public bool XuLyXoaMuaHang(MUAHANG mh)
+        {
+            if (mh != null)
+            {
+                try
+                {
+                    db.MUAHANGs.Remove(mh);
+                    if (db.SaveChanges() >= 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
     }
 
 }

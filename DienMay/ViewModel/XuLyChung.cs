@@ -10,7 +10,7 @@ namespace DienMay.ViewModel
         public static IEnumerable<long> DivideEvenly(long numerator, long denominator)
         {
             int rem;
-            long div = Math.DivRem((int)numerator, (int)denominator, out rem);
+            int div = Math.DivRem((int)numerator, (int)denominator, out rem);
 
             for (int i = 0; i < denominator; i++)
             {

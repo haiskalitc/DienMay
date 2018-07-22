@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DienMay"
              mc:Ignorable="d" 
+            
              d:DesignHeight="768" d:DesignWidth="1024"
              >
     <Grid>
@@ -39,7 +40,7 @@
                                                   Height="auto"
                                                   Width="auto"                                                
                                                   Mouse.MouseUp="LsvDanhSachCauHoi_OnSelected"
-                                                  MaxHeight="600"
+                                                  MaxHeight="550"
                                                   ItemsSource="{Binding}"
                                                   x:Name="lsvKhachHang"
                                                   CanUserAddRows="False"
@@ -62,7 +63,7 @@
                                                                 VerticalAlignment="Center"
                                                                 Padding="5 7.5 5 7.5"
                                                                 Height="30"
-                                                                Foreground="Black"
+                                                    Foreground="{Binding MaMau}"
                                                                 TextTrimming="WordEllipsis"
                                                                 >
                                                 </TextBlock>
@@ -97,7 +98,7 @@
                                                                 VerticalAlignment="Center"
                                                                 Padding="5 7.5 5 7.5"
                                                                 Height="30"
-                                                                Foreground="Black"
+                                                    Foreground="{Binding MaMau}"
                                                                 TextTrimming="WordEllipsis"
                                                                 >
 
@@ -132,7 +133,7 @@
                                                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
                                                 <Setter Property="Padding" Value="5 7.5 5 7.5"></Setter>
                                                 <Setter Property="Height" Value="30"></Setter>
-                                                <Setter Property="Foreground" Value="Black"></Setter>
+                                                <Setter Property="Foreground" Value="{Binding MaMau}"></Setter>
                                                 <Setter Property="TextTrimming" Value="WordEllipsis"></Setter>
                                             </Style>
                                         </DataGridTextColumn.ElementStyle>
@@ -150,7 +151,7 @@
                                                                 VerticalAlignment="Center"
                                                                 Padding="5 7.5 5 7.5"
                                                                 Height="30"
-                                                                Foreground="Black"
+                                                    Foreground="{Binding MaMau}"
                                                                 TextTrimming="WordEllipsis"
                                                                 >
 
@@ -186,7 +187,7 @@
                                                                 VerticalAlignment="Center"
                                                                 Padding="5 7.5 5 7.5"
                                                                 Height="30"
-                                                                Foreground="Black"
+                                                    Foreground="{Binding MaMau}"
                                                                 TextTrimming="WordEllipsis"
                                                                 >
 
@@ -226,7 +227,7 @@
                                                                 VerticalAlignment="Center"
                                                                 Padding="5 7.5 5 7.5"
                                                                 Height="30"
-                                                                Foreground="Black"
+                                                    Foreground="{Binding MaMau}"
                                                                 TextTrimming="WordEllipsis"
                                                                 >
 

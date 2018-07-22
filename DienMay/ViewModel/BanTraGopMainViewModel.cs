@@ -12,6 +12,8 @@ namespace DienMay.ViewModel
         public KHACHANG ThongTinKhacHang { get; set; }
         public TRANGTHAI TrangThai { get; set; }
         public MUAHANG ThongTinMuaHang { get; set; }
+
+        public string MaMau { get; set; }
         public BanTraGopMainViewModel()
         {
 
@@ -21,6 +23,16 @@ namespace DienMay.ViewModel
             this.ThongTinKhacHang = kh;
             this.TrangThai = tt;
             this.ThongTinMuaHang = mh;
+            if (tt.Id == 1)
+            {
+                //con no
+                this.MaMau = "#CC0000";
+            }
+            else {
+                //hoan thanh
+                this.MaMau = "#006600";
+
+            }
         }
     }
 }

@@ -12,10 +12,20 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+/// <summary>
+/// TRẠNG THÁI 
+/// 1 : Nợ
+/// 2 : Hoàn thành
+/// 
+/// HÌNH THỨC
+/// 1: Đủ
+/// 2: Góp
+/// </summary>
+/// 
 namespace DienMay
 {
     /// <summary>
@@ -96,12 +106,30 @@ namespace DienMay
 
         private void btnXacNhan_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtSoThangPhaiTra.Text))
+            if (long.Parse(txtConNo.Text) < 0)
             {
-                MessageBox.Show("Thông báo", "Số tháng phải trả không hợp lệ!");
+                MessageBox.Show("Số tiền không hợp lệ!", "Thông báo");
                 return;
             }
-            MessageBoxResult re = MessageBox.Show( "Xác nhận lưu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (txtNgayMua.SelectedDate == null)
+            {
+                MessageBox.Show("Chưa chọn ngày bán!", "Thông báo");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtSoThangPhaiTra.Text))
+            {
+                MessageBox.Show("Số tháng phải trả không hợp lệ!","Thông báo");
+                return;
+            }
+            if (int.Parse(txtConNo.Text) != 0)
+            {
+                if (int.Parse(txtSoThangPhaiTra.Text) == 0)
+                {
+                    MessageBox.Show("Số tháng phải trả không hợp lệ!", "Thông báo");
+                    return;
+                }
+            }
+            MessageBoxResult re = MessageBox.Show("Xác nhận lưu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (re == MessageBoxResult.Yes)
             {
                 KHACHANG khachHang = new KHACHANG();
@@ -121,7 +149,7 @@ namespace DienMay
                 {
                     MUAHANG muaHang = new MUAHANG();
                     muaHang.IdKhachHang = khachHang.Id;
-                    muaHang.ChuoiNgayMua = txtNgayMua.Text;
+                    muaHang.ChuoiNgayMua = txtNgayMua.SelectedDate.Value.ToString("dd/MM/yyyy");
                     muaHang.GiaSanPham = long.Parse(txtGiaSanPham.Text);
                     muaHang.SoThangTra = long.Parse(txtSoThangPhaiTra.Text);
                     muaHang.TraTruoc = long.Parse(txtDaTraTruoc.Text);
@@ -147,13 +175,52 @@ namespace DienMay
                         }
                         else
                         {
+                            List<CHITIETMUAHANG> dsChiTietMuaHangTam = new List<CHITIETMUAHANG>();
+                            List<long> dsChiaDeu = XuLyChung.DivideEvenly(long.Parse(txtConNo.Text), long.Parse(txtSoThangPhaiTra.Text)).ToList();
+                            for (int i = 0; i < dsChiaDeu.Count; i++)
+                            {
+                                try
+                                {
+                                    CHITIETMUAHANG chiTietMuaHang = new CHITIETMUAHANG()
+                                    {
+                                        IdKhachHang = khachHang.Id,
+                                        IdMuaHang = muaHang.Id,
+                                        SoTienConLai = dsChiaDeu[i],
+                                        ChuoiNgayTra = txtNgayMua.SelectedDate.Value.AddMonths((i + 1)).ToString("dd/MM/yyyy"),
+                                        DaHoanThanh = dsChiaDeu[i] == 0 ? 2 : 1
+                                    };
+                                    if (chiTietMuaHang != null)
+                                    {
+                                        dsChiTietMuaHangTam.Add(chiTietMuaHang);
 
+                                    }
+                                }
+                                catch (Exception) { }
+                            }
+                            if (dsChiTietMuaHangTam.Count > 0)
+                            {
+                                ChiTietLanTraGopThem chiTietLanTraGopThem = new ChiTietLanTraGopThem(dsChiTietMuaHangTam);
+                                this.Hide();
+                                chiTietLanTraGopThem.Back += (sen, arg) =>
+                                {
+                                    //Xoa ds chi tiết tạm
+                                    //Xóa khách hàng
+                                    //Xóa mua hàng
+                                    XuLyKhachHang.getInstance.XoaKhachHangTheoKhachHang(khachHang);
+                                    XuLyMuaHang.getInstance.XuLyXoaMuaHang(muaHang);
+                                    dsChiTietMuaHangTam.Clear();
+                                    (sen as ChiTietLanTraGopThem).Close();
+                                    this.Show();
+                                };
+                                chiTietLanTraGopThem.ShowDialog();
+
+                                //Show popup
+                            }
                         }
                     }
 
                 }
             }
-            else { }
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {

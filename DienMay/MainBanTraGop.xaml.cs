@@ -23,7 +23,7 @@ namespace DienMay
     public partial class MainBanTraGop : UserControl
     {
         public int pageIndex = 1;
-        private int numberOfRecPerPage = 25;
+        private int numberOfRecPerPage = 12;
         private enum PagingMode { First = 1, Next = 2, Previous = 3, Last = 4, PageCountChange = 5 };
         NotifiableCollection<BanTraGopMainViewModel> danhSachKhacHang = new NotifiableCollection<BanTraGopMainViewModel>();
         NotifiableCollection<BanTraGopMainViewModel> danhSachKhacHangPhanTrang = new NotifiableCollection<BanTraGopMainViewModel>();

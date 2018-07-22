@@ -8,6 +8,8 @@
         WindowStartupLocation="CenterScreen"
         Height="720" Width="1020"
         WindowStyle="None"   
+                BorderBrush="Black"
+        BorderThickness="0.5"     
         ResizeMode="CanResizeWithGrip"
         Name="Windown">
     <Border Margin="-3" BorderThickness="1" BorderBrush="#4189eb" CornerRadius="10">
@@ -96,7 +98,7 @@
                                         FontSize="14"
                                         >
                                     <StackPanel Orientation="Horizontal">
-                
+
                                         <TextBlock 
                                             Name="banHangText"
                                             FontSize="20"
@@ -130,7 +132,7 @@
                 <Grid Grid.Column="1"
                       Name="Content"
                       Background="White">
-                  
+
                 </Grid>
             </Grid>
             <Grid Grid.Row="2"
