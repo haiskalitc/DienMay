@@ -34,8 +34,7 @@
               Grid.Row="1">
             <StackPanel Orientation="Vertical"
                         Margin="0 8 0 0">
-                <Border Style="{DynamicResource BoTron_Border}" 
->
+                <Border Style="{DynamicResource BoTron_Border}">
                     <DataGrid IsReadOnly="True"
                               SelectionChanged="lsvKhachHang_SelectionChanged"
                                                   HeadersVisibility="Column"

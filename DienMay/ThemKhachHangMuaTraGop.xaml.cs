@@ -212,6 +212,22 @@ namespace DienMay
                                     (sen as ChiTietLanTraGopThem).Close();
                                     this.Show();
                                 };
+                                chiTietLanTraGopThem.BackLuu += (sen, arg) =>
+                                {
+      
+                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButton.OK);
+                                    (sen as ChiTietLanTraGopThem).Close();
+                                    txtTenKhachHang.Text = "";
+                                    txtSoDienThoai.Text = "";
+                                    txtTenNguoiBaoLanh.Text = "";
+                                    txtDiaChi.Text = "";
+                                    txtGiaSanPham.Text = "0";
+                                    txtSoThangPhaiTra.Text = "0";
+                                    txtDaTraTruoc.Text = "0";
+                                    txtTenSanPham.Text = "";
+                                    txtNgayMua.Text = "";
+                                    txtConNo.Text = "0"; this.Show();
+                                };
                                 chiTietLanTraGopThem.ShowDialog();
 
                                 //Show popup

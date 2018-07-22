@@ -26,6 +26,7 @@ namespace DienMay
         private List<CHITIETMUAHANG> dsChiTietMuaHangTam;
         NotifiableCollection<ChiTietTraGopModel> danhSach = new NotifiableCollection<ChiTietTraGopModel>();
         public event EventHandler Back;
+        public event EventHandler BackLuu;
         public ChiTietLanTraGopThem()
         {
             InitializeComponent();
@@ -66,7 +67,7 @@ namespace DienMay
                 {
                     XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
                 }
-                Back(this, new EventArgs());
+                BackLuu(this, new EventArgs());
             }
         }
 

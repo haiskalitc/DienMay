@@ -77,10 +77,10 @@
                 <GroupBox  
                     Grid.Row="0"
                     Header="Thông tin khách hàng"
-                    FontSize="18"
-                    FontWeight="Medium"
-                    Foreground="#1c1c1c" 
-                      BorderThickness="0" Margin="10 5 10 0">
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Foreground="#1c1c1c" 
+                          BorderThickness="0" Margin="10 5 10 0">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -239,7 +239,7 @@
                                         <Style TargetType="DatePickerTextBox">
                                             <Setter Property="Text" Value="Chọn ngày" />
                                         </Style>
-                       
+
                                     </DatePicker.Resources>
                                 </DatePicker>
 
@@ -313,7 +313,7 @@
                                 HorizontalAlignment="Left"
                                 Grid.Column="0"
                         Orientation="Vertical">
-                                <TextBlock Text="Giá sản phẩm: "  
+                                <TextBlock Text="Giá bán: "  
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
@@ -335,7 +335,7 @@
                                 HorizontalAlignment="Left"
                                 Grid.Column="1"
                         Orientation="Vertical">
-                                <TextBlock Text="Đã trả trước: "  
+                                <TextBlock Text="Trả trước: "  
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
