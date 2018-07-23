@@ -153,6 +153,7 @@ namespace DienMay
                         }
                         else
                         {
+
                             danhSachKhacHangPhanTrang.Clear();
                             danhSachKhacHang.Skip
                             ((pageIndex - 1) * numberOfRecPerPage).Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
