@@ -80,7 +80,22 @@ namespace DienMay
         }
         private void LsvDanhSachCauHoi_OnSelected(object sender, MouseButtonEventArgs e)
         {
+            var itemSelect = lsvKhachHang.SelectedItem as BanTraGopMainViewModel;
+            if (itemSelect != null)
+            {
+                ThongTinChiTietKhachHang thongTin = new ThongTinChiTietKhachHang(itemSelect);
+                thongTin.Back += ThongTin_Back;
+                thongTin.Show();
+                mainView.Hide();
+            }
         }
+
+        private void ThongTin_Back(object sender, EventArgs e)
+        {
+            (sender as ThongTinChiTietKhachHang).Close();
+            mainView.Show();
+        }
+
         private void Navigate(int mode)
         {
             int count;

@@ -71,6 +71,43 @@ namespace Service.XuLy
             }
             return false;
         }
+        public bool SuaMuaHang(MUAHANG mh)
+        {
+            if (mh != null)
+            {
+                try
+                {
+                    var muaHangSua = db.MUAHANGs.FirstOrDefault(model => model.Id == mh.Id);
+                    if (muaHangSua != null)
+                    {
+                        muaHangSua.IdKhachHang = mh.IdKhachHang;
+                        muaHangSua.NgayMua = mh.NgayMua;
+                        muaHangSua.SoThangTra = mh.SoThangTra;
+                        muaHangSua.TenSanPham = mh.TenSanPham;
+                        muaHangSua.TraTruoc = mh.TraTruoc;
+                        muaHangSua.ChuoiNgayMua = mh.ChuoiNgayMua;
+                        muaHangSua.GiaSanPham = mh.GiaSanPham;
+                        muaHangSua.ConLai = mh.ConLai;
+                        db.Entry(muaHangSua).State = System.Data.Entity.EntityState.Modified;
+                        if (db.SaveChanges() >= 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
         public bool XuLyXoaMuaHang(MUAHANG mh)
         {
             if (mh != null)

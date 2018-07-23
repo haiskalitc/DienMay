@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DienMay.ViewModel;
 
 namespace DienMay
 {
@@ -19,14 +20,22 @@ namespace DienMay
     /// </summary>
     public partial class ThongTinChiTietKhachHang : Window
     {
+        private BanTraGopMainViewModel itemSelect;
+        public event EventHandler Back;
         public ThongTinChiTietKhachHang()
         {
             InitializeComponent();
         }
 
+        public ThongTinChiTietKhachHang(BanTraGopMainViewModel itemSelect)
+        {
+            InitializeComponent();
+            this.itemSelect = itemSelect;
+        }
+
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
-
+            Back(this,new EventArgs());
         }
     
         private void lsvKhachHang_MouseUp_1(object sender, MouseButtonEventArgs e)
@@ -34,9 +43,14 @@ namespace DienMay
 
         }
 
-        private void btnSua_Click(object sender, RoutedEventArgs e)
+        public void HienThiGiaoDien()
         {
 
+        }
+
+        private void btnSua_Click(object sender, RoutedEventArgs e)
+        {
+            //Sua item
         }
 
         private void lsvKhachHang_SelectionChanged(object sender, SelectionChangedEventArgs e)

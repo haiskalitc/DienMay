@@ -11,11 +11,12 @@
         BorderBrush="Black"
         BorderThickness="0.5"        
         Title="ChiTietLanTraGopThem" 
-        Height="400" Width="700">
+        Height="450" Width="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Background="#ecf6fd">
@@ -115,7 +116,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.HeaderTemplate>
                             </DataGridTemplateColumn>
-                         
+
                             <DataGridTemplateColumn Width="2.2*"
                                                    Header="NameText"
                                                             HeaderStyle="{DynamicResource DataGridColumnHeader}">
@@ -223,7 +224,24 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="2"
+        <StackPanel Grid.Row="2"
+                    Margin="0 0 10 0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <TextBlock Text="Số dư:    "
+                       FontWeight="Bold"
+                       FontSize="15"
+                       Foreground="#014d71"
+                       VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="0"
+                       Foreground="Black"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       Name="txtSoDu"
+                       VerticalAlignment="Center"></TextBlock>
+        </StackPanel>
+
+        <Grid Grid.Row="3"
               Background="#ecf6fd"
               >
             <Grid.ColumnDefinitions>
@@ -263,5 +281,6 @@
                 </StackPanel>
             </Button>
         </Grid>
+        
     </Grid>
 </Window>

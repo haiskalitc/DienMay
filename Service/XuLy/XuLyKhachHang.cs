@@ -38,6 +38,37 @@ namespace Service.XuLy
             }
             return null;
         }
+
+        public bool SuaKhachHang(KHACHANG mh)
+        {
+            if (mh != null)
+            {
+                try
+                {
+                    var muaHangSua = db.KHACHANGs.FirstOrDefault(model => model.Id.Equals(mh.Id));
+                    if (muaHangSua != null)
+                    {
+                        muaHangSua.IdTrangThai = mh.IdTrangThai;
+                        db.Entry(muaHangSua).State = System.Data.Entity.EntityState.Modified;
+                        if (db.SaveChanges() >= 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
         public bool ThemKhachHang(KHACHANG kh)
         {
             if (kh != null)
