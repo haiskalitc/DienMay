@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -139,7 +140,12 @@ namespace DienMay
                     item.Foreground = System.Windows.Media.Brushes.Red;
 
 
+                    ChiTietTraGopModel chiTiet = danhSach[lsvKhachHang.SelectedIndex];
+                    chiTiet.MuaHang.ChuoiNgayTra = chiTiet.NgayPhaiTra.ToString("dd/MM/yyyy");
 
+                    // sửa chi tiết
+                    // sửa khách
+                    //sửa mua
 
 
                     danhSach.Clear();

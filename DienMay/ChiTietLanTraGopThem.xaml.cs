@@ -120,6 +120,7 @@ namespace DienMay
                 {
                     foreach (ChiTietTraGopModel item in danhSach)
                     {
+                        item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
                         XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
                     }
                     muaHang.ConLai = tongTienNo;
@@ -135,6 +136,7 @@ namespace DienMay
                 {
                     foreach (ChiTietTraGopModel item in danhSach)
                     {
+                        item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
                         XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
                     }
                     muaHang.ConLai = tongTienNo;
@@ -150,6 +152,7 @@ namespace DienMay
                 {
                     foreach (ChiTietTraGopModel item in danhSach)
                     {
+                        item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
                         XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
                     }
                     BackLuu(this, new EventArgs());
