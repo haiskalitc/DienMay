@@ -36,10 +36,8 @@ namespace DienMay
             try
             {
                 LayDuLieu(danhSachKhacHang);
-
                 danhSachKhacHangPhanTrang.Clear();
                 danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
-
             }
             catch (Exception)
             {
@@ -51,10 +49,7 @@ namespace DienMay
                     this.lsvKhachHang.DataContext = danhSachKhacHangPhanTrang;
                 }
             }
-
         }
-
-  
         public void LayDuLieu(NotifiableCollection<BanTraGopMainViewModel> ds)
         {
             try
@@ -69,7 +64,6 @@ namespace DienMay
             {
             }
         }
-
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             Navigate((int)PagingMode.Next);
@@ -78,8 +72,19 @@ namespace DienMay
         {
             Navigate((int)PagingMode.Previous);
         }
-        private void LsvDanhSachCauHoi_OnSelected(object sender, MouseButtonEventArgs e)
+        private void LsvDanhSachCauHoi_OnSelected(object sender, MouseButtonEventArgs see)
         {
+            var itemSelected = lsvKhachHang.SelectedItem as BanTraGopMainViewModel;
+            ThongTinChiTietKhachHang th = new ThongTinChiTietKhachHang(itemSelected);
+            th.Back += (sen, arg) => 
+            {
+                (sen as ThongTinChiTietKhachHang).Close();
+                LayDuLieu(danhSachKhacHang);
+                Navigate((int)PagingMode.First);
+                mainView.Show();
+            };
+            mainView.Hide();
+            th.Show();
         }
         private void Navigate(int mode)
         {
@@ -132,7 +137,7 @@ namespace DienMay
                         if (pageIndex == 1)
                         {
                             danhSachKhacHangPhanTrang.Clear();
-                           danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
+                            danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
                             count = danhSachKhacHang.Take(numberOfRecPerPage).Count();
                             lblpageInformation.Text = count + "/" + danhSachKhacHang.Count;
                         }
@@ -147,7 +152,7 @@ namespace DienMay
                         if (pageIndex <= 1)
                         {
                             danhSachKhacHangPhanTrang.Clear();
-                           danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
+                            danhSachKhacHang.Take(numberOfRecPerPage).ToList().ForEach(model => { danhSachKhacHangPhanTrang.Add(model); });
                             count = danhSachKhacHang.Take(numberOfRecPerPage).Count();
                             lblpageInformation.Text = count + "/" + danhSachKhacHang.Count;
                             btnPrev.Visibility = Visibility.Hidden;
@@ -171,16 +176,14 @@ namespace DienMay
                     break;
             }
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ThemKhachHangMuaTraGop themBanHang = new ThemKhachHangMuaTraGop();
             themBanHang.Show();
             mainView.Hide();
             themBanHang.QuayLai += ThemBanHang_QuayLai;
-            
-        }
 
+        }
         private void ThemBanHang_QuayLai(object sender, EventArgs e)
         {
             LayDuLieu(danhSachKhacHang);

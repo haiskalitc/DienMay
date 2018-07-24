@@ -21,6 +21,12 @@ namespace Service.XuLy
                 return _instance;
             }
         }
+
+        public List<CHITIETMUAHANG> DocDanhSachTheoIdKhachHang(long id)
+        {
+            return db.CHITIETMUAHANGs.Where(model => model.IdKhachHang == id).ToList();
+        }
+
         public XuLyChiTietMuaHang()
         {
             db = new DienMayThanhDanhEntities();

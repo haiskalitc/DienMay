@@ -260,11 +260,11 @@
                                         HorizontalAlignment="Left"
                                         Grid.Column="2"
                                         Orientation="Vertical">
-                                <TextBlock Text="Số tiền còn nợ: "
+                                <TextBlock Text="Tên người bảo lãnh: "
                                            FontSize="15"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
-                                <TextBox Name="txtSoTienConNo"
+                                <TextBox Name="txtTenNguoiBaoLanh"
                                          Width="300"
                                          Height="30"
                                          IsReadOnly="True"
@@ -292,7 +292,7 @@
                                            Width="100"></TextBlock>
                                 <TextBlock Name="txtTrangThai"
                                          Width="300"
-                                         Text="Còn nợ"
+                                         Text=""
                                          Height="30"
                                          FontSize="15"
                                          Foreground="#1c1c1c"
@@ -314,11 +314,10 @@
                           Margin="10 5 10 0"
                           Grid.Row="1"
                           >
-                    <Grid>
+                    <Grid Name="gridDanhSachChiTietMuaHang">
                         <Border Style="{DynamicResource BoTron_Border}"
                                 >
                             <DataGrid IsReadOnly="True"
-                                      SelectionChanged="lsvKhachHang_SelectionChanged"
                                       HeadersVisibility="Column"                                                 
                                       SelectionMode="Extended"   
                                       Background="Transparent"
@@ -533,7 +532,7 @@
                                            Width="100"></TextBlock>
                     <TextBlock Name="txtTongConNo"
                                          Width="150"
-                                         Text="1000000000"
+                                         Text="0"
                                          Height="30"
                                          FontSize="15"
                                          Foreground="#1c1c1c"
