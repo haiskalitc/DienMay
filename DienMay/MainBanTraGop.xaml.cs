@@ -76,7 +76,7 @@ namespace DienMay
         {
             var itemSelected = lsvKhachHang.SelectedItem as BanTraGopMainViewModel;
             ThongTinChiTietKhachHang th = new ThongTinChiTietKhachHang(itemSelected);
-            th.Back += (sen, arg) => 
+            th.Back += (sen, arg) =>
             {
                 (sen as ThongTinChiTietKhachHang).Close();
                 LayDuLieu(danhSachKhacHang);
@@ -194,7 +194,15 @@ namespace DienMay
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            DanhSachToiHangTraNo dachSachtoiHang = new DanhSachToiHangTraNo();
+            dachSachtoiHang.Show();
+            mainView.Hide();
+            dachSachtoiHang.Back += (SE, AR) => 
+            {
+                LayDuLieu(danhSachKhacHang);
+                mainView.Show();
+                (SE as DanhSachToiHangTraNo).Close();
+            };
         }
     }
 }

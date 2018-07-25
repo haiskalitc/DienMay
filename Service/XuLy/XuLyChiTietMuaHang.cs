@@ -21,7 +21,10 @@ namespace Service.XuLy
                 return _instance;
             }
         }
-
+        public List<CHITIETMUAHANG> DocDanhSachTatCa(string chuoiNgay)
+        {
+            return db.CHITIETMUAHANGs.Where(model => model.ChuoiNgayTra.Equals(chuoiNgay)&& model.DaHoanThanh == 1).ToList();
+        }
         public List<CHITIETMUAHANG> DocDanhSachTheoIdKhachHang(long id)
         {
             return db.CHITIETMUAHANGs.Where(model => model.IdKhachHang == id).ToList();
