@@ -41,7 +41,7 @@ namespace DienMay.ViewModel.Base
             this.muaHang = chiTiet;
             ngayPhaiTra =  new DateTime(int.Parse(muaHang.ChuoiNgayTra.Split('/')[2]),
             int.Parse(muaHang.ChuoiNgayTra.Split('/')[1]),
-           int.Parse(muaHang.ChuoiNgayTra.Split('/')[0]));
+            int.Parse(muaHang.ChuoiNgayTra.Split('/')[0]));
         }
     }
 }

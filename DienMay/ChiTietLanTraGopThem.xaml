@@ -45,12 +45,11 @@
                                                   BorderBrush="Transparent"
                                                   Height="auto"
                                                   Width="auto"    
-                                                    ItemsSource="{Binding}"
+                                                  ItemsSource="{Binding}"
                                                   Mouse.MouseUp="LsvDanhSachCauHoi_OnSelected"
                                                   x:Name="lsvKhachHang"
                                                   CanUserAddRows="False"
-                                                  FontSize="13" AutoGenerateColumns="False"
-                                                 >
+                                                  FontSize="13" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <!--STT-->
                             <DataGridTemplateColumn     
@@ -59,17 +58,16 @@
                                                     HeaderStyle="{DynamicResource DataGridColumnHeader}">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock       
-                                                 IsEnabled="False"
-                                                    IsHitTestVisible="False"
-                                                    Text="{Binding STT}"
-                                                                HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center"
-                                                                Padding="5 7.5 5 7.5"
-                                                                Height="40"
-                                                    Foreground="{Binding MaMau}"
-                                                                TextTrimming="WordEllipsis"
-                                                                >
+                                        <TextBlock 
+                                            IsEnabled="False"
+                                                 IsHitTestVisible="False"
+                                                 Text="{Binding STT}"
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"
+                                                 Padding="5 7.5 5 7.5"
+                                                 Height="40"
+                                                 Foreground="{Binding MaMau}"
+                                                 TextTrimming="WordEllipsis">
                                         </TextBlock>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -92,15 +90,15 @@
                                             Name="Ngay"
                                             IsEnabled="False"
                                             HorizontalAlignment="Center"
-                                                    SelectedDate="{Binding Path=NgayPhaiTra, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                                VerticalAlignment="Center"
-                                                                Padding="5 7.5 5 7.5"
-                                                                Height="40"
+                                            SelectedDate="{Binding 
+                                            Path=NgayPhaiTra,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}"
+                                            VerticalAlignment="Center"
+                                            Padding="5 7.5 5 7.5"
+                                            Height="40"
                                             Width="170"
-                                                    Foreground="{Binding MaMau}"
-                                                                >
-
-
+                                            Foreground="{Binding MaMau}">
                                         </DatePicker>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

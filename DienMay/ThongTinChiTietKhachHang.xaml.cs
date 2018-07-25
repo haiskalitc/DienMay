@@ -76,6 +76,18 @@ namespace DienMay
                 txtDaTraTruoc.Text = mhTemp.TraTruoc.ToString();
                 txtTenNguoiBaoLanh.Text = khTemp.TenNguoiBaoLanh;
             }
+            if (mhTemp.ConLai > 0)
+            {
+                txtTrangThai.Text = "Còn nợ";
+            }
+            else if (mhTemp.ConLai == 0)
+            {
+                txtTrangThai.Text = "Hoàn thành";
+            }
+            else
+            {
+                txtTrangThai.Text = "Còn nợ";
+            }
 
         }
         public void LoadLaiSoNo(NotifiableCollection<ChiTietTraGopModel> danhSachT)
@@ -86,14 +98,6 @@ namespace DienMay
                 so += item.MuaHang.SoTienConLai;
             }
             txtTongConNo.Text = so.ToString();
-            if (so > 0)
-            {
-                txtTrangThai.Text = "Còn nợ";
-            }
-            else if (so == 0)   
-            {
-                txtTrangThai.Text = "Hoàn thành";
-            }
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
@@ -136,29 +140,46 @@ namespace DienMay
                 else
                 {
                     //Hoàn thành
-                    item.Content = "Sửa"; 
+                    item.Content = "Sửa";
                     item.Foreground = System.Windows.Media.Brushes.Red;
 
-
+                    // sửa chi tiết                
                     ChiTietTraGopModel chiTiet = danhSach[lsvKhachHang.SelectedIndex];
                     chiTiet.MuaHang.ChuoiNgayTra = chiTiet.NgayPhaiTra.ToString("dd/MM/yyyy");
-
-                    // sửa chi tiết
-                    // sửa khách
-                    //sửa mua
-
-
-                    danhSach.Clear();
-                    dsChiTietMuaHang.Clear();
-                    for (int i = 0; i < dsChiTietMuaHang.Count; i++)
+                    if (chiTiet.MuaHang.SoTienConLai == 0)
                     {
-                        danhSach.Add(new ChiTietTraGopModel("Lần" + (i + 1), dsChiTietMuaHang[i]));
+                        chiTiet.MuaHang.DaHoanThanh = 2;
                     }
-                    if (this.gridDanhSachChiTietMuaHang.DataContext == null)
+                    else
                     {
-                        this.gridDanhSachChiTietMuaHang.DataContext = danhSach;
-                        LoadLaiSoNo(danhSach);
+                        chiTiet.MuaHang.DaHoanThanh = 1;
                     }
+                    XuLyChiTietMuaHang.getInstance.SuaChiTietMuaHang(chiTiet.MuaHang);
+
+
+                    long so = 0;
+                    foreach (var itemChiTiet in danhSach)
+                    {
+                        so += itemChiTiet.MuaHang.SoTienConLai;
+                    }
+                    txtTongConNo.Text = so.ToString();
+                    itemSelected.ThongTinMuaHang.ConLai = so;
+                    XuLyMuaHang.getInstance.SuaMuaHang(itemSelected.ThongTinMuaHang);
+
+                    if (so == 0)
+                    {
+                        itemSelected.ThongTinKhacHang.IdTrangThai = 2;
+                        XuLyKhachHang.getInstance.SuaKhachHang(itemSelected.ThongTinKhacHang);
+                    }
+                    else
+                    {
+                        itemSelected.ThongTinKhacHang.IdTrangThai = 1;
+                        XuLyKhachHang.getInstance.SuaKhachHang(itemSelected.ThongTinKhacHang);
+                    }
+
+                    DoDuLieu(itemSelected.ThongTinKhacHang, itemSelected.ThongTinMuaHang);
+                    this.gridDanhSachChiTietMuaHang.DataContext = null;
+                    this.gridDanhSachChiTietMuaHang.DataContext = danhSach;                    
                 }
             }
         }

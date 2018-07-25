@@ -80,6 +80,39 @@ namespace Service.XuLy
             return false;
         }
 
+        public bool SuaChiTietMuaHang(CHITIETMUAHANG chiTiet)
+        {
+            if (chiTiet != null)
+            {
+                try
+                {
+                    var chiTietMuaHangSua = db.CHITIETMUAHANGs.FirstOrDefault(model => model.Id == chiTiet.Id);
+                    if (chiTietMuaHangSua != null)
+                    {
+                        chiTietMuaHangSua.IdKhachHang = chiTiet.IdKhachHang;
+                        chiTietMuaHangSua.IdMuaHang = chiTiet.IdMuaHang;
+                        chiTietMuaHangSua.NgayTra = chiTiet.NgayTra;
+                        chiTietMuaHangSua.SoTienConLai = chiTiet.SoTienConLai;
+                        chiTietMuaHangSua.ChuoiNgayTra = chiTiet.ChuoiNgayTra;
+                        chiTietMuaHangSua.DaHoanThanh = chiTiet.DaHoanThanh;
+                    }
+
+                    if (db.SaveChanges() >= 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
 
     }
 }

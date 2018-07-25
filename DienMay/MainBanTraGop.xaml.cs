@@ -191,5 +191,10 @@ namespace DienMay
             mainView.Show();
             (sender as ThemKhachHangMuaTraGop).Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
