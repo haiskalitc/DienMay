@@ -36,11 +36,22 @@ namespace DienMay
         public long hinhThuc = 1;
         List<HINHTHUC> danhSachHinhThucMua = new List<HINHTHUC>();
         public event EventHandler QuayLai;
+        ModelThemKhachHang modelThemKhachHang = null;
         public ThemKhachHangMuaTraGop()
         {
             InitializeComponent();
             danhSachHinhThucMua = XuLyHinhThuc.getInstance.DocDanhSachTatCa();
             dataHinhThucMua.DataContext = danhSachHinhThucMua;
+            modelThemKhachHang = new ModelThemKhachHang()
+            {
+                GiaSanPham = new Gia() { GiaHienThi = 100000
+                    },
+                GiaTraTruoc = new Gia() { GiaHienThi = 2000}
+            };
+            if(GiaCa.DataContext==null)
+            {
+                GiaCa.DataContext = modelThemKhachHang;
+            }
         }
 
         private void btnDong_Click(object sender, RoutedEventArgs e)
@@ -68,40 +79,41 @@ namespace DienMay
 
         private void txtGiaSanPham_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (hinhThuc == 1)
-            {
-                try
-                {
-                    txtDaTraTruoc.Text = txtGiaSanPham.Text;
-                }
-                catch (Exception)
-                {
-                }
-            }
-            else
-            {
-                try
-                {
-                    if (!string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()))
-                    {
-                        long result = long.Parse(string.IsNullOrEmpty(txtGiaSanPham.Text.Trim()) ? "0" : txtGiaSanPham.Text.Trim()) -
-                            long.Parse(string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()) ? "0" : txtDaTraTruoc.Text.Trim());
-                        if (result > 0)
-                        {
-                            txtConNo.Text = result + "";
-                            txtConNo.Foreground = System.Windows.Media.Brushes.Black;
-                        }
-                        else
-                        {
-                            txtConNo.Text = result + "";
-                            txtConNo.Foreground = System.Windows.Media.Brushes.Red;
-                        }
 
-                    }
-                }
-                catch (Exception)
-                { }
-            }
+            //if (hinhThuc == 1)
+            //{
+            //    try
+            //    {
+            //        txtDaTraTruoc.Text = txtGiaSanPham.Text;
+            //    }
+            //    catch (Exception)
+            //    {
+            //    }
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        if (!string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()))
+            //        {
+            //            long result = long.Parse(string.IsNullOrEmpty(txtGiaSanPham.Text.Trim()) ? "0" : txtGiaSanPham.Text.Trim()) -
+            //                long.Parse(string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()) ? "0" : txtDaTraTruoc.Text.Trim());
+            //            if (result > 0)
+            //            {
+            //                txtConNo.Text = result + "";
+            //                txtConNo.Foreground = System.Windows.Media.Brushes.Black;
+            //            }
+            //            else
+            //            {
+            //                txtConNo.Text = result + "";
+            //                txtConNo.Foreground = System.Windows.Media.Brushes.Red;
+            //            }
+
+            //        }
+            //    }
+            //    catch (Exception)
+            //    { }
+            //}
         }
 
         private void btnXacNhan_Click(object sender, RoutedEventArgs e)

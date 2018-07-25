@@ -292,7 +292,6 @@
                            Width="400"></TextBlock>
                                 <TextBox 
                                     MaxLength="2"
-                                    Text="0"
                                     PreviewTextInput="NumberValidationTextBox"
                                     Name="txtSoThangPhaiTra"
                          Width="400"
@@ -303,7 +302,9 @@
 
                             </StackPanel>
                         </Grid>
-                        <Grid Grid.Row="2">
+                        <Grid Grid.Row="2"
+                              Name="GiaCa"
+                              >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
@@ -318,13 +319,16 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
-                                    MaxLength="12"
+                                    MaxLength="20"
                                     TextChanged="txtGiaSanPham_TextChanged"
                                     PreviewTextInput="NumberValidationTextBox"
                                     Name="txtGiaSanPham"
                          Width="400"
                          Height="30"
-                                                                        Text="0"
+                                  Text="{Binding GiaSanPham.GiaHienThi,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    StringFormat='#,###'}"
+                                    Tag="{Binding GiaSanPham.GiaSai}"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
                                  HorizontalAlignment="Stretch"></TextBox>
@@ -346,8 +350,8 @@
                                     Name="txtDaTraTruoc"
                          Width="400"
                          Height="30"
-                               Text="0"
-                                 FontSize="15"
+                                  Text="{Binding GiaSanPham.GiaHienThi}"
+                                    Tag="{Binding GiaSanPham.GiaSai}"                                 FontSize="15"
                                      Foreground="#1c1c1c"
                                  HorizontalAlignment="Stretch"></TextBox>
 
