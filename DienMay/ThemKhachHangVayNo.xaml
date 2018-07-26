@@ -1,4 +1,4 @@
-﻿<Window x:Class="DienMay.ThemKhachHangMuaTraGop"
+﻿<Window x:Class="DienMay.ThemKhachHangVayNo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -92,7 +92,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
-
+                                <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <StackPanel
                                 VerticalAlignment="Center"
@@ -106,11 +106,11 @@
                            Width="400"></TextBlock>
                                 <TextBox 
                                     Name="txtTenKhachHang"
-                         Width="400"
+                         Width="300"
                          Height="30"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
+                                 HorizontalAlignment="Left"></TextBox>
 
                             </StackPanel>
                             <StackPanel
@@ -125,16 +125,36 @@
                            Width="400"></TextBlock>
                                 <TextBox 
                                     Name="txtSoDienThoai"
-                         Width="400"
+                         Width="300"
                          Height="30"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
+                                 HorizontalAlignment="Left"></TextBox>
+
+                            </StackPanel>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Grid.Column="2"
+                        Orientation="Vertical">
+                                <TextBlock Text="Số CMND:"  
+                                           FontStyle="Italic"
+                           FontSize="15"
+                           Foreground="#014d71"
+                           Width="400"></TextBlock>
+                                <TextBox 
+                                    Name="txtCMND"
+                         Width="300"
+                         Height="30"
+                                 FontSize="15"
+                                     Foreground="#1c1c1c"
+                                 HorizontalAlignment="Left"></TextBox>
 
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
@@ -149,12 +169,12 @@
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
-                         Width="400"
+                         Width="300"
                                     Name="txtDiaChi"
                          Height="30"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
+                                 HorizontalAlignment="Left"></TextBox>
 
                             </StackPanel>
                             <StackPanel
@@ -162,18 +182,18 @@
                                 HorizontalAlignment="Left"
                                 Grid.Column="1"
                         Orientation="Vertical">
-                                <TextBlock Text="Tên người bảo lãnh: " 
+                                <TextBlock Text="Tài sản thế chấp: " 
                                            FontStyle="Italic"
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
-                                    Name="txtTenNguoiBaoLanh"
-                         Width="400"
+                                    Name="txtTaiSanTheChap"
+                         Width="300"
                          Height="30"
                                  FontSize="15"
                                      Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
+                                 HorizontalAlignment="Left"></TextBox>
 
                             </StackPanel>
                         </Grid>
@@ -181,7 +201,7 @@
                 </GroupBox>
                 <GroupBox  
                     Grid.Row="1"
-                    Header="Thông tin mua hàng"
+                    Header="Thông tin vay"
                     FontSize="18"
                     FontWeight="Medium"
                     Foreground="#1c1c1c" 
@@ -197,7 +217,7 @@
                             <RowDefinition></RowDefinition>
 
                         </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
+                        <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
@@ -208,13 +228,17 @@
                                 HorizontalAlignment="Left"
                                 Grid.Column="0"
                         Orientation="Vertical">
-                                <TextBlock Text="Tên sản phẩm:" 
-                                           FontStyle="Italic"
+                                <TextBlock Text="Số tháng:"  
                            FontSize="15"
+                                           FontStyle="Italic"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
                                 <TextBox 
-                                    Name="txtTenSanPham"
+                                    MaxLength="2"
+                                    TextChanged="txtSoThang_TextChanged"
+                                    Text="0"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    Name="txtSoThang"
                          Width="400"
                          Height="30"
                                  FontSize="15"
@@ -227,7 +251,7 @@
                                 HorizontalAlignment="Left"
                                 Grid.Column="1"
                         Orientation="Vertical">
-                                <TextBlock Text="Ngày mua hàng:"  
+                                <TextBlock Text="Ngày vay:"  
                                            FontStyle="Italic"
                            FontSize="15"
                            Foreground="#014d71"
@@ -236,7 +260,7 @@
                                     
                                     IsTodayHighlighted="True"
                                     Language="vi"
-                                   Name="txtNgayMua"
+                                   Name="txtNgayVay"
                          Width="400"
                          Height="30"
                                  FontSize="15"
@@ -252,67 +276,8 @@
 
                             </StackPanel>
                         </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel
-                                Name="dataHinhThucMua"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Grid.Column="0"
-                        Orientation="Vertical">
-                                <TextBlock Text="Hình thức mua: "  
-                                           FontStyle="Italic"
-                           FontSize="15"
-                           Foreground="#014d71"
-                           Width="400"></TextBlock>
-                                <ComboBox 
-                                    Name="cbbHinhThucMua"
-                                    SelectedIndex="0"
-                                ItemsSource="{Binding}"
-                                    SelectionChanged="ComboBox_SelectionChanged"
-                         Width="400"
-                         Height="30"
-                                    SelectedValuePath="Id"
-                                 FontSize="15"
-                                     Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock 
-                                                Text="{Binding TenHinhThuc}"
-                                                ></TextBlock>
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
-
-                            </StackPanel>
-                            <StackPanel
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Grid.Column="1"
-                        Orientation="Vertical">
-                                <TextBlock Text="Số tháng trả góp:"  
-                           FontSize="15"
-                                           FontStyle="Italic"
-                           Foreground="#014d71"
-                           Width="400"></TextBlock>
-                                <TextBox 
-                                    MaxLength="2"
-                                    Text="0"
-                                    PreviewTextInput="NumberValidationTextBox"
-                                    Name="txtSoThangPhaiTra"
-                         Width="400"
-                         Height="30"
-                                 FontSize="15"
-                                     Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
-
-                            </StackPanel>
-                        </Grid>
-                        <Grid Grid.Row="2">
+                     
+                        <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
@@ -323,17 +288,17 @@
                                 HorizontalAlignment="Left"
                                 Grid.Column="0"
                         Orientation="Vertical">
-                                <TextBlock Text="Giá sản phẩm: "  
+                                <TextBlock Text="Số tiền vay: "
+                                           HorizontalAlignment="Left"
                                            FontStyle="Italic"
                            FontSize="15"
                            Foreground="#014d71"
-                           Width="400"></TextBlock>
+                           Width="300"></TextBlock>
 
                                 <currency:CurrencyTextBox                                    
                                     MaxLength="12"
-                                    TextChanged="txtGiaSanPham_TextChanged"
                                     PreviewTextInput="NumberValidationTextBox"
-                                    x:Name="txtGiaSanPham"
+                                    x:Name="txtSoTienVay"
                                     Text="0"
                                     Number="0"
                                     Width="400"
@@ -352,7 +317,7 @@
                                 HorizontalAlignment="Left"
                                 Grid.Column="1"
                         Orientation="Vertical">
-                                <TextBlock Text="Khách thanh toán trước: "  
+                                <TextBlock Text="Số lãi hàng tháng: "  
                            FontSize="15"
                                            FontStyle="Italic"
                            Foreground="#014d71"
@@ -372,7 +337,7 @@
                                     MaxLength="12"
                                     TextChanged="txtDaTraTruoc_TextChanged"
                                     PreviewTextInput="NumberValidationTextBox"
-                                    x:Name="txtDaTraTruoc"
+                                    x:Name="txtSoLaiHangThang"
                                     Text="0"
                                     Number="0"
                                     Width="400"
@@ -392,24 +357,18 @@
                             <StackPanel
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
-                                Grid.Column="0"
+                                Grid.Column="1"
                         Orientation="Vertical">
-                                <TextBlock Text="Số tiền còn nợ: "
+                                <TextBlock Text="Số tiền lãi tạm tính: "
                                            FontStyle="Italic"
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
-                                <!--<TextBox 
-                                    Name="txtConNo"
-                                    Width="400"
-                                    IsReadOnly="True"
-                                    Height="30"
-                                    FontSize="15"
-                                     Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>-->
+                              
                                 <currency:CurrencyTextBox                                    
                                     MaxLength="12"
-                                    x:Name="txtConNo"
+                                    IsEnabled="False"
+                                    x:Name="txtLaiTamTinh"
                                     Text="0"
                                     Width="400"
                                     Height="30"

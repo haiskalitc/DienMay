@@ -6,39 +6,42 @@ using System.Text;
 
 namespace Service.XuLy
 {
-    public class XuLyChiTietMuaHang
+    public class XuLyChiTietVayNo
     {
         public DienMayThanhDanhEntities db = new DienMayThanhDanhEntities();
-        private static XuLyChiTietMuaHang _instance;
-        public static XuLyChiTietMuaHang getInstance
+        private static XuLyChiTietVayNo _instance;
+        public static XuLyChiTietVayNo getInstance
         {
             get
-            {                
-                _instance = new XuLyChiTietMuaHang();               
+            {
+            //    if (_instance == null)
+            //    {
+                    _instance = new XuLyChiTietVayNo();
+              //  }
                 return _instance;
             }
         }
-        public List<CHITIETMUAHANG> DocDanhSachTatCa(string chuoiNgay)
+        public List<CHITIETVAYLAI> DocDanhSachTatCa(string chuoiNgay)
         {
-            return db.CHITIETMUAHANGs.Where(model => model.ChuoiNgayTra.Equals(chuoiNgay)&& model.DaHoanThanh == 1).ToList();
+            return db.CHITIETVAYLAIs.Where(model => model.ChuoiNgayTra.Equals(chuoiNgay) && model.TrangThai == 1).ToList();
         }
-        public List<CHITIETMUAHANG> DocDanhSachTheoIdKhachHang(long id)
+        public List<CHITIETVAYLAI> DocDanhSachTheoIdKhachHang(long id)
         {
-            return db.CHITIETMUAHANGs.Where(model => model.IdKhachHang == id).ToList();
+            return db.CHITIETVAYLAIs.Where(model => model.IdKhachHangVay == id).ToList();
         }
 
-        public XuLyChiTietMuaHang()
+        public XuLyChiTietVayNo()
         {
             db = new DienMayThanhDanhEntities();
         }
 
-        public bool ThemChiTietMuaHang(CHITIETMUAHANG chiTiet)
+        public bool ThemChiTietMuaHang(CHITIETVAYLAI chiTiet)
         {
             if (chiTiet != null)
             {
                 try
                 {
-                    db.CHITIETMUAHANGs.Add(chiTiet);
+                    db.CHITIETVAYLAIs.Add(chiTiet);
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
@@ -56,13 +59,13 @@ namespace Service.XuLy
             return false;
         }
 
-        public bool XoaChiTietMuaHang(CHITIETMUAHANG chiTiet)
+        public bool XoaChiTietMuaHang(CHITIETVAYLAI chiTiet)
         {
             if (chiTiet != null)
             {
                 try
                 {
-                    db.CHITIETMUAHANGs.Remove(chiTiet);
+                    db.CHITIETVAYLAIs.Remove(chiTiet);
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
@@ -80,21 +83,20 @@ namespace Service.XuLy
             return false;
         }
 
-        public bool SuaChiTietMuaHang(CHITIETMUAHANG chiTiet)
+        public bool SuaChiTietMuaHang(CHITIETVAYLAI chiTiet)
         {
             if (chiTiet != null)
             {
                 try
                 {
-                    var chiTietMuaHangSua = db.CHITIETMUAHANGs.FirstOrDefault(model => model.Id == chiTiet.Id);
+                    var chiTietMuaHangSua = db.CHITIETVAYLAIs.FirstOrDefault(model => model.Id == chiTiet.Id);
                     if (chiTietMuaHangSua != null)
                     {
-                        chiTietMuaHangSua.IdKhachHang = chiTiet.IdKhachHang;
-                        chiTietMuaHangSua.IdMuaHang = chiTiet.IdMuaHang;
-                        chiTietMuaHangSua.NgayTra = chiTiet.NgayTra;
-                        chiTietMuaHangSua.SoTienConLai = chiTiet.SoTienConLai;
+                        chiTietMuaHangSua.IdKhachHangVay = chiTiet.IdKhachHangVay;
+                        chiTietMuaHangSua.IdVayLai = chiTiet.IdVayLai;
                         chiTietMuaHangSua.ChuoiNgayTra = chiTiet.ChuoiNgayTra;
-                        chiTietMuaHangSua.DaHoanThanh = chiTiet.DaHoanThanh;
+                        chiTietMuaHangSua.SoTienConLai = chiTiet.SoTienConLai;
+                        chiTietMuaHangSua.TrangThai = chiTiet.TrangThai;
                     }
 
                     if (db.SaveChanges() >= 0)
@@ -113,6 +115,5 @@ namespace Service.XuLy
             }
             return false;
         }
-
     }
 }

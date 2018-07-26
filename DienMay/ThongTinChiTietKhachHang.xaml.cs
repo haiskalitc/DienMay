@@ -97,16 +97,16 @@ namespace DienMay
             {
                 so += item.MuaHang.SoTienConLai;
             }
-            txtTongConNo.Number = so;//.ToString();
+            txtTongConNo.Number = so;//.ToString();`1
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult mess = MessageBox.Show("Xác nhận thoát?", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (mess == MessageBoxResult.Yes)
-            {
+            //MessageBoxResult mess = MessageBox.Show("Xác nhận thoát?", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            //if (mess == MessageBoxResult.Yes)
+            //{
                 Back(this, new EventArgs());
-            }
+            //}
         }
 
         private void lsvKhachHang_MouseUp_1(object sender, MouseButtonEventArgs e)

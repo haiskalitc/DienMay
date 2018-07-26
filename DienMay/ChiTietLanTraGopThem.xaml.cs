@@ -31,6 +31,7 @@ namespace DienMay
         KHACHANG khachHang;
         public long isNo = 0;
         public long tongTienNo = -1;
+
         public ChiTietLanTraGopThem()
         {
 
@@ -94,70 +95,76 @@ namespace DienMay
 
         private void btnDangNhap_Click(object sender, RoutedEventArgs e)
         {
-            if (tongTienNo == 0)
+            #region Mua hàng
+            if (dsChiTietMuaHangTam != null)
             {
-                MessageBoxResult thongBaoLonHon = MessageBox.Show("Khách hàng này sẽ hết nợ?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (thongBaoLonHon == MessageBoxResult.Yes)
+                if (tongTienNo == 0)
                 {
-                    muaHang.ConLai = 0;
-                    XuLyMuaHang.getInstance.SuaMuaHang(muaHang);
-                    khachHang.IdTrangThai = 2;
-                    XuLyKhachHang.getInstance.SuaKhachHang(khachHang);
-                    BackLuu(this, new EventArgs());
-                    return;
+                    MessageBoxResult thongBaoLonHon = MessageBox.Show("Khách hàng này sẽ hết nợ?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (thongBaoLonHon == MessageBoxResult.Yes)
+                    {
+                        muaHang.ConLai = 0;
+                        XuLyMuaHang.getInstance.SuaMuaHang(muaHang);
+                        khachHang.IdTrangThai = 2;
+                        XuLyKhachHang.getInstance.SuaKhachHang(khachHang);
+                        BackLuu(this, new EventArgs());
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
+                if (isNo > 0)
+                {
+                    MessageBoxResult thongBaoLonHon = MessageBox.Show("Tổng số tiền phải trả lớn hơn so với giá đã nhập ban đầu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (thongBaoLonHon == MessageBoxResult.Yes)
+                    {
+                        foreach (ChiTietTraGopModel item in danhSach)
+                        {
+                            item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
+                            XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
+                        }
+                        muaHang.ConLai = tongTienNo;
+                        XuLyMuaHang.getInstance.SuaMuaHang(muaHang);
+                        BackLuu(this, new EventArgs());
+                        return;
+                    }
+                }
+                else if (isNo < 0)
+                {
+                    MessageBoxResult thongBaoLonHon = MessageBox.Show("Tổng số tiền phải trả nhỏ hơn so với giá đã nhập ban đầu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (thongBaoLonHon == MessageBoxResult.Yes)
+                    {
+                        foreach (ChiTietTraGopModel item in danhSach)
+                        {
+                            item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
+                            XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
+                        }
+                        muaHang.ConLai = tongTienNo;
+                        XuLyMuaHang.getInstance.SuaMuaHang(muaHang);
+                        BackLuu(this, new EventArgs());
+                        return;
+                    }
                 }
                 else
                 {
-                    return;
-                }
-            }
-
-            if (isNo > 0)
-            {
-                MessageBoxResult thongBaoLonHon = MessageBox.Show("Tổng số tiền phải trả lớn hơn so với giá đã nhập ban đầu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (thongBaoLonHon == MessageBoxResult.Yes)
-                {
-                    foreach (ChiTietTraGopModel item in danhSach)
+                    MessageBoxResult re = MessageBox.Show("Xác nhận lưu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (re == MessageBoxResult.Yes)
                     {
-                        item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
-                        XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
+                        foreach (ChiTietTraGopModel item in danhSach)
+                        {
+                            item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
+                            XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
+                        }
+                        BackLuu(this, new EventArgs());
+                        return;
                     }
-                    muaHang.ConLai = tongTienNo;
-                    XuLyMuaHang.getInstance.SuaMuaHang(muaHang);
-                    BackLuu(this, new EventArgs());
-                    return;
                 }
             }
-            else if (isNo < 0)
-            {
-                MessageBoxResult thongBaoLonHon = MessageBox.Show("Tổng số tiền phải trả nhỏ hơn so với giá đã nhập ban đầu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (thongBaoLonHon == MessageBoxResult.Yes)
-                {
-                    foreach (ChiTietTraGopModel item in danhSach)
-                    {
-                        item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
-                        XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
-                    }
-                    muaHang.ConLai = tongTienNo;
-                    XuLyMuaHang.getInstance.SuaMuaHang(muaHang);
-                    BackLuu(this, new EventArgs());
-                    return;
-                }
-            }
-            else
-            {
-                MessageBoxResult re = MessageBox.Show("Xác nhận lưu?", "Thông báo!", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (re == MessageBoxResult.Yes)
-                {
-                    foreach (ChiTietTraGopModel item in danhSach)
-                    {
-                        item.MuaHang.ChuoiNgayTra = item.NgayPhaiTra.ToString("dd/MM/yyyy");
-                        XuLyChiTietMuaHang.getInstance.ThemChiTietMuaHang(item.MuaHang);
-                    }
-                    BackLuu(this, new EventArgs());
-                    return;
-                }
-            }
+            #endregion
+     
         }
 
         private void LsvDanhSachCauHoi_OnSelected(object sender, MouseButtonEventArgs e)
@@ -173,71 +180,77 @@ namespace DienMay
 
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
-
-            var item = (sender as Button);
-            if (item != null)
+            #region mua hàng
+            if (dsChiTietMuaHangTam != null)
             {
-                if (item.Content.Equals("Sửa"))
-                {
-                    item.Content = "Lưu";
-                    item.Foreground = System.Windows.Media.Brushes.Green;
 
-                    DataGridRow row = (DataGridRow)lsvKhachHang.ItemContainerGenerator.ContainerFromItem(lsvKhachHang.Items[lsvKhachHang.SelectedIndex]);
-                    var checkbox = ((DataGridTemplateColumn)lsvKhachHang.Columns[2]).CellTemplate.FindName("Gia", lsvKhachHang.Columns[2].GetCellContent(row)) as TextBox;
-                    if (checkbox != null)
-                    {
-                        checkbox.IsEnabled = true;
-                    }
-
-                    var db = ((DataGridTemplateColumn)lsvKhachHang.Columns[1]).CellTemplate.FindName("Ngay", lsvKhachHang.Columns[1].GetCellContent(row)) as DatePicker;
-                    if (db != null)
-                    {
-                        db.IsEnabled = true;
-                    }
-                }
-                else
+                var item = (sender as Button);
+                if (item != null)
                 {
-                    //Hoàn thành
-                    item.Content = "Sửa";
-                    item.Foreground = System.Windows.Media.Brushes.Red;
-                    this.Content.DataContext = null;
-                    this.Content.DataContext = danhSach;
-                    tongTienNo = 0;
-                    foreach (var itemDetail in danhSach)
+                    if (item.Content.Equals("Sửa"))
                     {
-                        tongTienNo += itemDetail.MuaHang.SoTienConLai;
+                        item.Content = "Lưu";
+                        item.Foreground = System.Windows.Media.Brushes.Green;
+
+                        DataGridRow row = (DataGridRow)lsvKhachHang.ItemContainerGenerator.ContainerFromItem(lsvKhachHang.Items[lsvKhachHang.SelectedIndex]);
+                        var checkbox = ((DataGridTemplateColumn)lsvKhachHang.Columns[2]).CellTemplate.FindName("Gia", lsvKhachHang.Columns[2].GetCellContent(row)) as TextBox;
+                        if (checkbox != null)
+                        {
+                            checkbox.IsEnabled = true;
+                        }
+
+                        var db = ((DataGridTemplateColumn)lsvKhachHang.Columns[1]).CellTemplate.FindName("Ngay", lsvKhachHang.Columns[1].GetCellContent(row)) as DatePicker;
+                        if (db != null)
+                        {
+                            db.IsEnabled = true;
+                        }
                     }
-                    if (muaHang != null)
+                    else
                     {
-                        isNo = tongTienNo - muaHang.ConLai;
-                        if (isNo > 0)
+                        //Hoàn thành
+                        item.Content = "Sửa";
+                        item.Foreground = System.Windows.Media.Brushes.Red;
+                        this.Content.DataContext = null;
+                        this.Content.DataContext = danhSach;
+                        tongTienNo = 0;
+                        foreach (var itemDetail in danhSach)
                         {
-                            txtSoDu.Foreground = System.Windows.Media.Brushes.Green;
-                            txtSoDu.Number = isNo;
-                            isNo = 1;
+                            tongTienNo += itemDetail.MuaHang.SoTienConLai;
                         }
-                        else if (isNo < 0)
+                        if (muaHang != null)
                         {
-                            txtSoDu.Foreground = System.Windows.Media.Brushes.Green;
-                            txtSoDu.Number = isNo;
-                            isNo = -1;
-                        }
-                        else
-                        {
-                            txtSoDu.Number = isNo;
-                            txtSoDu.Foreground = System.Windows.Media.Brushes.Black;
-                            isNo = 0;
+                            isNo = tongTienNo - muaHang.ConLai;
+                            if (isNo > 0)
+                            {
+                                txtSoDu.Foreground = System.Windows.Media.Brushes.Green;
+                                txtSoDu.Number = isNo;
+                                isNo = 1;
+                            }
+                            else if (isNo < 0)
+                            {
+                                txtSoDu.Foreground = System.Windows.Media.Brushes.Green;
+                                txtSoDu.Number = isNo;
+                                isNo = -1;
+                            }
+                            else
+                            {
+                                txtSoDu.Number = isNo;
+                                txtSoDu.Foreground = System.Windows.Media.Brushes.Black;
+                                isNo = 0;
+                            }
                         }
                     }
                 }
             }
-        }
+            #endregion
+            else
+            {
 
+            }
+        }
         private void lsvKhachHang_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-
-
     }
 }

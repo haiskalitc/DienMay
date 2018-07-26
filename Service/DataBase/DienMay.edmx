@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DienMayThanhDanhModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;H:\Freelancer Project\DienMayThanhDanh\DienMay\Data\Database\DienMayThanhDanh.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DienMayThanhDanhModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=E:\DienMay\DienMay\bin\Debug\Data\Database\DienMayThanhDanh.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHITIETMUAHANG">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,6 +16,17 @@
           <Property Name="ChuoiNgayTra" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="NgayTra" Type="integer" Nullable="false" />
           <Property Name="DaHoanThanh" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHITIETVAYLAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdKhachHangVay" Type="integer" Nullable="false" />
+          <Property Name="IdVayLai" Type="integer" Nullable="false" />
+          <Property Name="SoTienConLai" Type="integer" Nullable="false" />
+          <Property Name="ChuoiNgayTra" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="TrangThai" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="HINHTHUC">
           <Key>
@@ -34,6 +45,18 @@
           <Property Name="DiaChi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="TenNguoiBaoLanh" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="IdTrangThai" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHACHHANGVAYLAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenKhachHang" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="SoCMND" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="TaiSanTheChap" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="TrangThai" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="MUAHANG">
           <Key>
@@ -64,13 +87,27 @@
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenTrangThai" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
+        <EntityType Name="VAYLAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoLai" Type="integer" Nullable="false" />
+          <Property Name="SoThangVay" Type="integer" Nullable="false" />
+          <Property Name="NgayVay" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="IdKhachHangVay" Type="integer" Nullable="false" />
+          <Property Name="SoTienVay" Type="integer" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DienMayThanhDanhModelStoreContainer">
           <EntitySet Name="CHITIETMUAHANG" EntityType="Self.CHITIETMUAHANG" store:Type="Tables" />
+          <EntitySet Name="CHITIETVAYLAI" EntityType="Self.CHITIETVAYLAI" store:Type="Tables" />
           <EntitySet Name="HINHTHUC" EntityType="Self.HINHTHUC" store:Type="Tables" />
           <EntitySet Name="KHACHANG" EntityType="Self.KHACHANG" store:Type="Tables" />
+          <EntitySet Name="KHACHHANGVAYLAI" EntityType="Self.KHACHHANGVAYLAI" store:Type="Tables" />
           <EntitySet Name="MUAHANG" EntityType="Self.MUAHANG" store:Type="Tables" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" store:Type="Tables" />
           <EntitySet Name="TRANGTHAI" EntityType="Self.TRANGTHAI" store:Type="Tables" />
+          <EntitySet Name="VAYLAI" EntityType="Self.VAYLAI" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -89,6 +126,17 @@
           <Property Name="NgayTra" Type="Int64" Nullable="false" />
           <Property Name="DaHoanThanh" Type="Int64" Nullable="false" />
         </EntityType>
+        <EntityType Name="CHITIETVAYLAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdKhachHangVay" Type="Int64" Nullable="false" />
+          <Property Name="IdVayLai" Type="Int64" Nullable="false" />
+          <Property Name="SoTienConLai" Type="Int64" Nullable="false" />
+          <Property Name="ChuoiNgayTra" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int64" Nullable="false" />
+        </EntityType>
         <EntityType Name="HINHTHUC">
           <Key>
             <PropertyRef Name="Id" />
@@ -106,6 +154,18 @@
           <Property Name="DiaChi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TenNguoiBaoLanh" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdTrangThai" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHACHHANGVAYLAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKhachHang" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoCMND" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TaiSanTheChap" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="MUAHANG">
           <Key>
@@ -136,13 +196,27 @@
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenTrangThai" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <EntityType Name="VAYLAI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoLai" Type="Int64" Nullable="false" />
+          <Property Name="SoThangVay" Type="Int64" Nullable="false" />
+          <Property Name="NgayVay" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdKhachHangVay" Type="Int64" Nullable="false" />
+          <Property Name="SoTienVay" Type="Int64" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DienMayThanhDanhEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETMUAHANGs" EntityType="Self.CHITIETMUAHANG" />
+          <EntitySet Name="CHITIETVAYLAIs" EntityType="Self.CHITIETVAYLAI" />
           <EntitySet Name="HINHTHUCs" EntityType="Self.HINHTHUC" />
           <EntitySet Name="KHACHANGs" EntityType="Self.KHACHANG" />
+          <EntitySet Name="KHACHHANGVAYLAIs" EntityType="Self.KHACHHANGVAYLAI" />
           <EntitySet Name="MUAHANGs" EntityType="Self.MUAHANG" />
           <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
           <EntitySet Name="TRANGTHAIs" EntityType="Self.TRANGTHAI" />
+          <EntitySet Name="VAYLAIs" EntityType="Self.VAYLAI" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -163,6 +237,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CHITIETVAYLAIs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.CHITIETVAYLAI">
+              <MappingFragment StoreEntitySet="CHITIETVAYLAI">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdKhachHangVay" ColumnName="IdKhachHangVay" />
+                <ScalarProperty Name="IdVayLai" ColumnName="IdVayLai" />
+                <ScalarProperty Name="SoTienConLai" ColumnName="SoTienConLai" />
+                <ScalarProperty Name="ChuoiNgayTra" ColumnName="ChuoiNgayTra" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="HINHTHUCs">
             <EntityTypeMapping TypeName="DienMayThanhDanhModel.HINHTHUC">
               <MappingFragment StoreEntitySet="HINHTHUC">
@@ -180,6 +266,19 @@
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="TenNguoiBaoLanh" ColumnName="TenNguoiBaoLanh" />
                 <ScalarProperty Name="IdTrangThai" ColumnName="IdTrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGVAYLAIs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.KHACHHANGVAYLAI">
+              <MappingFragment StoreEntitySet="KHACHHANGVAYLAI">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TaiSanTheChap" ColumnName="TaiSanTheChap" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -212,6 +311,18 @@
               <MappingFragment StoreEntitySet="TRANGTHAI">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TenTrangThai" ColumnName="TenTrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VAYLAIs">
+            <EntityTypeMapping TypeName="DienMayThanhDanhModel.VAYLAI">
+              <MappingFragment StoreEntitySet="VAYLAI">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SoLai" ColumnName="SoLai" />
+                <ScalarProperty Name="SoThangVay" ColumnName="SoThangVay" />
+                <ScalarProperty Name="NgayVay" ColumnName="NgayVay" />
+                <ScalarProperty Name="IdKhachHangVay" ColumnName="IdKhachHangVay" />
+                <ScalarProperty Name="SoTienVay" ColumnName="SoTienVay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

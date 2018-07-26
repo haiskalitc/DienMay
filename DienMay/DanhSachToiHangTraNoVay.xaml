@@ -1,4 +1,4 @@
-﻿<Window x:Class="DienMay.DanhSachToiHangTraNo"
+﻿<Window x:Class="DienMay.DanhSachToiHangTraNoVay"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -104,7 +104,7 @@
                             </Style>
                         </DatePicker.Resources>
                     </DatePicker>
-                    
+
                 </Grid>
 
                 <!--DANH SÁCH-->
@@ -112,9 +112,8 @@
                     Name="gridDanhSach"
                     Grid.Row="1"
                     >
-                <Border
-                    Style="{DynamicResource BoTron_Border}" Margin="16 8 16 0">
-                    <DataGrid IsReadOnly="True"
+                    <Border Style="{DynamicResource BoTron_Border}" Margin="16 8 16 0">
+                        <DataGrid IsReadOnly="True"
                                                   HeadersVisibility="Column"
                                                   Margin="0.6"
                                                   SelectionMode="Extended"
@@ -130,16 +129,16 @@
                                                   CanUserAddRows="False"
                                                   FontSize="13" AutoGenerateColumns="False"
                                                  >
-                        <DataGrid.Columns>
+                            <DataGrid.Columns>
 
-                            <!--STT-->
-                            <DataGridTemplateColumn     
+                                <!--STT-->
+                                <DataGridTemplateColumn     
                                                     CanUserSort="True"
                                                     Width="0.8*"
                                                     HeaderStyle="{DynamicResource DataGridColumnHeader}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock       
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock       
                                                  
                                                     IsHitTestVisible="False"
                                                     Text="{Binding ThongTinKhacHang.Id}"
@@ -150,31 +149,31 @@
                                                     Foreground="{Binding MaMau}"
                                                                 TextTrimming="WordEllipsis"
                                                                 >
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                                 
                                                                 Orientation="Vertical"
                                                                 >
-                                            <TextBlock
+                                                <TextBlock
                                                                 Text="STT"
                                                     >
-                                            </TextBlock>
+                                                </TextBlock>
 
-                                        </StackPanel>
+                                            </StackPanel>
 
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.HeaderTemplate>
-                            </DataGridTemplateColumn>
-                            <!--Ten-->
-                            <DataGridTemplateColumn Width="2.3*"
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+                                </DataGridTemplateColumn>
+                                <!--Ten-->
+                                <DataGridTemplateColumn Width="2.3*"
                                                             HeaderStyle="{DynamicResource DataGridColumnHeader}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock       
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock       
                                                  
                                                     IsHitTestVisible="False"
                                                     Text="{Binding ThongTinKhacHang.TenKhachHang}"
@@ -187,47 +186,47 @@
                                                                 >
 
 
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                                 Orientation="Vertical"
                                                                 >
-                                            <TextBlock
+                                                <TextBlock
                                                                 Text="Tên khách hàng"
                                                     Name="CheckAll"
                                                     >
-                                            </TextBlock>
+                                                </TextBlock>
 
-                                        </StackPanel>
+                                            </StackPanel>
 
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.HeaderTemplate>
-                            </DataGridTemplateColumn>
-                            <!--Dia chi-->
-                            <DataGridTextColumn Width="2.5*" Binding="{Binding ThongTinKhacHang.DiaChi}" 
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+                                </DataGridTemplateColumn>
+                                <!--Dia chi-->
+                                <DataGridTextColumn Width="2.5*" Binding="{Binding ThongTinKhacHang.DiaChi}" 
                                                         Header="Địa chỉ"
                                                                 HeaderStyle="{DynamicResource DataGridColumnHeader}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="ToolTip" Value="{Binding ThongTinKhacHang.DiaChi}"></Setter>
-                                        <Setter Property="HorizontalAlignment" Value="Left" />
-                                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                        <Setter Property="Padding" Value="5 7.5 5 7.5"></Setter>
-                                        <Setter Property="Height" Value="30"></Setter>
-                                        <Setter Property="Foreground" Value="{Binding MaMau}"></Setter>
-                                        <Setter Property="TextTrimming" Value="WordEllipsis"></Setter>
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <!--SDT-->
-                            <DataGridTemplateColumn Width="1.5*"
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="ToolTip" Value="{Binding ThongTinKhacHang.DiaChi}"></Setter>
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                            <Setter Property="Padding" Value="5 7.5 5 7.5"></Setter>
+                                            <Setter Property="Height" Value="30"></Setter>
+                                            <Setter Property="Foreground" Value="{Binding MaMau}"></Setter>
+                                            <Setter Property="TextTrimming" Value="WordEllipsis"></Setter>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <!--SDT-->
+                                <DataGridTemplateColumn Width="1.5*"
                                                             HeaderStyle="{DynamicResource DataGridColumnHeader}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock       
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock       
                                                  
                                                     IsHitTestVisible="False"
                                                     Text="{Binding ThongTinKhacHang.SoDienThoai}"
@@ -240,33 +239,33 @@
                                                                 >
 
 
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                                 Orientation="Vertical"
                                                                 >
-                                            <TextBlock
+                                                <TextBlock
                                                                 Text="Số ĐT"
                                                     Name="CheckAll"
                                                     >
-                                            </TextBlock>
-                                        </StackPanel>
+                                                </TextBlock>
+                                            </StackPanel>
 
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.HeaderTemplate>
-                            </DataGridTemplateColumn>
-                            <!--Ngay mua-->
-                            <DataGridTemplateColumn Width="1.5*"
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+                                </DataGridTemplateColumn>
+                                <!--Ngay mua-->
+                                <DataGridTemplateColumn Width="1.5*"
                                                             HeaderStyle="{DynamicResource DataGridColumnHeader}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock       
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock       
                                                  
                                                     IsHitTestVisible="False"
-                                                    Text="{Binding ThongTinMuaHang.ChuoiNgayMua}"
+                                                    Text="{Binding ThongTinMuaHang.NgayVay}"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Center"
                                                                 Padding="5 7.5 5 7.5"
@@ -276,34 +275,34 @@
                                                                 >
 
 
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                                 Orientation="Vertical"
                                                                 >
-                                            <TextBlock
-                                                                Text="Ngày mua"
+                                                <TextBlock
+                                                                Text="Ngày vay"
                                                     Name="CheckAll"
                                                     >
-                                            </TextBlock>
-                                        </StackPanel>
+                                                </TextBlock>
+                                            </StackPanel>
 
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.HeaderTemplate>
-                            </DataGridTemplateColumn>
-                            <!--Trang tHAI-->
-                            <DataGridTemplateColumn Width="1.5*" 
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+                                </DataGridTemplateColumn>
+                                <!--Trang tHAI-->
+                                <DataGridTemplateColumn Width="1.5*" 
                                                             Header="Trang thái"
                                                             HeaderStyle="{DynamicResource DataGridColumnHeader}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
 
-                                        <Grid>
+                                            <Grid>
 
-                                            <TextBlock       
+                                                <TextBlock       
                                                  
                                                     IsHitTestVisible="False"
                                                     Text="{Binding TrangThai.TenTrangThai}"
@@ -316,15 +315,15 @@
                                                                 >
 
 
-                                            </TextBlock>
+                                                </TextBlock>
 
-                                        </Grid>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Border>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
 
                 </Grid>
 

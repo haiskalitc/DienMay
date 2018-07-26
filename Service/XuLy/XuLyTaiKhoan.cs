@@ -14,10 +14,10 @@ namespace Service.XuLy
         {
             get
             {
-                if (_instance == null)
-                {
+         //       if (_instance == null)
+           //     {
                     _instance = new XuLyTaiKhoan();
-                }
+           //     }
                 return _instance;
             }
         }
@@ -42,7 +42,7 @@ namespace Service.XuLy
                         return false;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return false;
                 }

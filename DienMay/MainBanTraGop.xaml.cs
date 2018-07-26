@@ -60,7 +60,7 @@ namespace DienMay
                     XuLyTrangThai.getInstance.DocTheoId(model.IdTrangThai),
                     XuLyMuaHang.getInstance.DocTheoIdKhachHang(model.Id))));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
         }
@@ -197,7 +197,7 @@ namespace DienMay
             DanhSachToiHangTraNo dachSachtoiHang = new DanhSachToiHangTraNo();
             dachSachtoiHang.Show();
             mainView.Hide();
-            dachSachtoiHang.Back += (SE, AR) => 
+            dachSachtoiHang.Back += (SE, AR) =>
             {
                 LayDuLieu(danhSachKhacHang);
                 mainView.Show();

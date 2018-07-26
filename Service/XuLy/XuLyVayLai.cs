@@ -6,55 +6,55 @@ using System.Text;
 
 namespace Service.XuLy
 {
-    public class XuLyMuaHang
+    public class XuLyVayLai
     {
         public DienMayThanhDanhEntities db = new DienMayThanhDanhEntities();
-        private static XuLyMuaHang _instance;
-        public static XuLyMuaHang getInstance
+        private static XuLyVayLai _instance;
+        public static XuLyVayLai getInstance
         {
             get
             {
-           //     if (_instance == null)
-              //  {
-                    _instance = new XuLyMuaHang();
-             //   }
+               // if (_instance == null)
+               // {
+                    _instance = new XuLyVayLai();
+               // }
                 return _instance;
             }
         }
-        public XuLyMuaHang()
+        public XuLyVayLai()
         {
             db = new DienMayThanhDanhEntities();
         }
 
-        public List<MUAHANG> DocDanhSachTatCa()
+        public List<VAYLAI> DocDanhSachTatCa()
         {
-            return db.MUAHANGs.ToList();
+            return db.VAYLAIs.ToList();
         }
-        public MUAHANG DocTheoId(long id)
+        public VAYLAI DocTheoId(long id)
         {
-            MUAHANG kh = db.MUAHANGs.FirstOrDefault(model => model.Id.Equals(id));
+            VAYLAI kh = db.VAYLAIs.FirstOrDefault(model => model.Id.Equals(id));
             if (kh != null)
             {
                 return kh;
             }
             return null;
         }
-        public MUAHANG DocTheoIdKhachHang(long id)
+        public VAYLAI DocTheoIdKhachHang(long id)
         {
-            MUAHANG kh = db.MUAHANGs.FirstOrDefault(model => model.IdKhachHang.Equals(id));
+            VAYLAI kh = db.VAYLAIs.FirstOrDefault(model => model.IdKhachHangVay.Equals(id));
             if (kh != null)
             {
                 return kh;
             }
             return null;
         }
-        public bool ThemMuaHang(MUAHANG mh)
+        public bool ThemMuaHang(VAYLAI mh)
         {
             if (mh != null)
             {
                 try
                 {
-                    db.MUAHANGs.Add(mh);
+                    db.VAYLAIs.Add(mh);
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
@@ -71,23 +71,20 @@ namespace Service.XuLy
             }
             return false;
         }
-        public bool SuaMuaHang(MUAHANG mh)
+        public bool SuaMuaHang(VAYLAI mh)
         {
             if (mh != null)
             {
                 try
                 {
-                    var muaHangSua = db.MUAHANGs.FirstOrDefault(model => model.Id == mh.Id);
+                    var muaHangSua = db.VAYLAIs.FirstOrDefault(model => model.Id == mh.Id);
                     if (muaHangSua != null)
                     {
-                        muaHangSua.IdKhachHang = mh.IdKhachHang;
-                        muaHangSua.NgayMua = mh.NgayMua;
-                        muaHangSua.SoThangTra = mh.SoThangTra;
-                        muaHangSua.TenSanPham = mh.TenSanPham;
-                        muaHangSua.TraTruoc = mh.TraTruoc;
-                        muaHangSua.ChuoiNgayMua = mh.ChuoiNgayMua;
-                        muaHangSua.GiaSanPham = mh.GiaSanPham;
-                        muaHangSua.ConLai = mh.ConLai;
+                        muaHangSua.IdKhachHangVay = mh.IdKhachHangVay;
+                        muaHangSua.NgayVay = mh.NgayVay;
+                        muaHangSua.SoThangVay = mh.SoThangVay;
+                        muaHangSua.SoTienVay = mh.SoTienVay;
+                        muaHangSua.SoLai = mh.SoLai;
                         db.Entry(muaHangSua).State = System.Data.Entity.EntityState.Modified;
                         if (db.SaveChanges() >= 0)
                         {
@@ -108,13 +105,13 @@ namespace Service.XuLy
             }
             return false;
         }
-        public bool XuLyXoaMuaHang(MUAHANG mh)
+        public bool XuLyXoaMuaHang(VAYLAI mh)
         {
             if (mh != null)
             {
                 try
                 {
-                    db.MUAHANGs.Remove(mh);
+                    db.VAYLAIs.Remove(mh);
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
@@ -132,6 +129,4 @@ namespace Service.XuLy
             return false;
         }
     }
-
 }
-

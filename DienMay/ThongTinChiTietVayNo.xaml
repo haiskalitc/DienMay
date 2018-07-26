@@ -1,11 +1,10 @@
-﻿<Window x:Class="DienMay.ThongTinChiTietKhachHang"
+﻿<Window x:Class="DienMay.ThongTinChiTietVayNo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DienMay"
-                xmlns:currency="clr-namespace:DienMay.NumbericTextBox"
-
+        xmlns:currency="clr-namespace:DienMay.NumbericTextBox"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Height="720" Width="1020"
@@ -77,7 +76,7 @@
                     <RowDefinition Height="1*"></RowDefinition>
 
                 </Grid.RowDefinitions>
-               
+
                 <!--THÔNG TIN-->
                 <GroupBox Header="Thông tin cá nhân"
                           FontSize="18"
@@ -95,7 +94,7 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        
+
                         <Grid Grid.Row="0">
                             <!--DÒNG 1 THÔNG TIN CÁ NHÂN-->
                             <Grid.ColumnDefinitions>
@@ -170,12 +169,12 @@
                                         HorizontalAlignment="Left"
                                         Grid.Column="0"
                                         Orientation="Vertical">
-                                <TextBlock Text="Tên sản phẩm: "
+                                <TextBlock Text="Số CMND: "
                                            FontSize="15"
                                            FontStyle="Italic"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
-                                <TextBox Name="txtTenSanPham"
+                                <TextBox Name="txtSoCMND"
                                          Width="300"
                                          Height="30"                                       
                                          FontSize="15"                                         
@@ -189,12 +188,12 @@
                                         Grid.Column="1"
                                         
                                         Orientation="Vertical">
-                                <TextBlock Text="Ngày mua: "
+                                <TextBlock Text="Ngày vay: "
                                            FontSize="15"
                                            FontStyle="Italic"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
-                                <TextBox Name="txtNgayMua"
+                                <TextBox Name="txtNgayVay"
                                          Width="300"
                                          Height="30"                                                                                 
                                          IsReadOnly="True"
@@ -207,12 +206,12 @@
                                         HorizontalAlignment="Left"
                                         Grid.Column="2"
                                         Orientation="Vertical">
-                                <TextBlock Text="Số tháng trả: "
+                                <TextBlock Text="Tài sản thế chấp: "
                                            FontSize="15"
                                            FontStyle="Italic"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
-                                <TextBox Name="txtSoThangTra"
+                                <TextBox Name="txtTaiSanTheChap"
                                          Width="300"
                                          Height="30"
                                          IsReadOnly="True"
@@ -235,7 +234,7 @@
                                         HorizontalAlignment="Left"
                                         Grid.Column="0"
                                         Orientation="Vertical">
-                                <TextBlock Text="Giá sản phẩm: "
+                                <TextBlock Text="Tiền vay: "
                                            FontSize="15"
                                            FontStyle="Italic"
                                            Foreground="#014d71"
@@ -243,7 +242,7 @@
 
                                 <currency:CurrencyTextBox                                    
                                     MaxLength="12"
-                                    x:Name="txtGiaSanPham"
+                                    x:Name="txtTienVay"
                                     Text="0"
                                     Number="0"
                                     Width="300"
@@ -259,14 +258,14 @@
                                         HorizontalAlignment="Left"
                                         Grid.Column="1"
                                         Orientation="Vertical">
-                                <TextBlock Text="Trả trước: "
+                                <TextBlock Text="Tiền lãi: "
                                            FontSize="15"
                                            FontStyle="Italic"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
                                 <currency:CurrencyTextBox                                    
                                     MaxLength="12"
-                                    x:Name="txtDaTraTruoc"
+                                    x:Name="txtTienLai"
                                     Text="0"
                                     Number="0"
                                     Width="300"
@@ -280,12 +279,12 @@
                                         HorizontalAlignment="Left"
                                         Grid.Column="2"
                                         Orientation="Vertical">
-                                <TextBlock Text="Tên người bảo lãnh: "
+                                <TextBlock Text="Số tháng: "
                                            FontSize="15"
                                            FontStyle="Italic"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
-                                <TextBox Name="txtTenNguoiBaoLanh"
+                                <TextBox Name="txtSoThang"
                                          Width="300"
                                          Height="30"
                                          IsReadOnly="True"
@@ -294,7 +293,7 @@
                                          HorizontalAlignment="Left">
                                 </TextBox>
                             </StackPanel>
-                            
+
                         </Grid>
                         <Grid Grid.Row="3">
                             <!--DÒNG 3 THÔNG MUA HÀNG GIÁ-->
@@ -324,10 +323,9 @@
 
                     </Grid>
                 </GroupBox>
-                
-               
+
                 <!--THÔNG TIN NỢ-->
-                <GroupBox Header="Thông tin trả góp"
+                <GroupBox Header="Thông tin trả lãi"
                           FontSize="18"
                           FontWeight="Medium"
                           Foreground="#1c1c1c" 
@@ -595,9 +593,9 @@
                 </StackPanel>
 
             </Grid>
-            
+
             <!--FOOTER-->
-            
+
         </Grid>
     </Border>
 </Window>

@@ -36,6 +36,7 @@ namespace DienMay
             }
         }
 
+ 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
             Back(this, new EventArgs());
@@ -44,15 +45,18 @@ namespace DienMay
         private void LsvDanhSachCauHoi_OnSelected(object sender, MouseButtonEventArgs e)
         {
             var itemSelected = lsvKhachHang.SelectedItem as BanTraGopMainViewModel;
-            ThongTinChiTietKhachHang th = new ThongTinChiTietKhachHang(itemSelected);
-            th.Back += (sen, arg) =>
+            if (itemSelected != null)
             {
-                (sen as ThongTinChiTietKhachHang).Close();
-                LayDuLieu(danhSachKhacHang,txtNgayToiHang.SelectedDate.Value.ToString("dd/MM/yyyy"));
-                this.Show();
-            };
-            this.Hide();
-            th.Show();
+                ThongTinChiTietKhachHang th = new ThongTinChiTietKhachHang(itemSelected);
+                th.Back += (sen, arg) =>
+                {
+                    (sen as ThongTinChiTietKhachHang).Close();
+                    LayDuLieu(danhSachKhacHang, txtNgayToiHang.SelectedDate.Value.ToString("dd/MM/yyyy"));
+                    this.Show();
+                };
+                this.Hide();
+                th.Show();
+            }
         }
 
         private void txtNgayToiHang_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

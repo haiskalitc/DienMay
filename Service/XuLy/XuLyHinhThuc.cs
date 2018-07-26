@@ -14,10 +14,10 @@ namespace Service.XuLy
         {
             get
             {
-                if (_instance == null)
-                {
+            //    if (_instance == null)
+             //   {
                     _instance = new XuLyHinhThuc();
-                }
+              //  }
                 return _instance;
             }
         }
