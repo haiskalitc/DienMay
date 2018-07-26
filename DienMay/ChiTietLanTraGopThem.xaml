@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:currency="clr-namespace:DienMay.NumbericTextBox"
         xmlns:local="clr-namespace:DienMay"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -20,12 +21,11 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Background="#ecf6fd">
-            <TextBlock 
-            Background="#ecf6fd"
-            VerticalAlignment="Center" 
-                                HorizontalAlignment="Center"
-                               Foreground="#014d71"
-                               FontWeight="Bold" 
+            <TextBlock Background="#ecf6fd"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       Foreground="#014d71"
+                       FontWeight="Bold" 
                                Text="CHI TIẾT SỐ LẦN TRẢ GÓP" 
                                FontSize="30"></TextBlock>
 
@@ -120,7 +120,22 @@
                                                             HeaderStyle="{DynamicResource DataGridColumnHeader}">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBox     
+                                        <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                     x:Name="Gia"
+                                            Number="{Binding MuaHang.SoTienConLai ,
+                                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                    FontSize="15"
+                                    VerticalAlignment="Center"
+                                    Padding="5 7.5 5 7.5"
+                                    Width="170"
+                                                                                IsEnabled="False"
+
+                                            Height="40"
+ Foreground="{Binding MaMau}"
+                                            HorizontalAlignment="Center">
+                                        </currency:CurrencyTextBox>
+                                        <!--<TextBox     
                                             x:Name="Gia"
                                             IsEnabled="False"
                                             HorizontalAlignment="Center"
@@ -131,7 +146,7 @@
                                             Width="170"
                                                                 Height="40"
                                                     Foreground="{Binding MaMau}">
-                                        </TextBox>
+                                        </TextBox>-->
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.HeaderTemplate>
@@ -231,20 +246,33 @@
                        FontSize="15"
                        Foreground="#014d71"
                        VerticalAlignment="Center"></TextBlock>
-            <TextBlock Text="0"
+            <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    x:Name="txtSoDu"
+                                    Text="0"
+                                    Width="200"
+                IsEnabled="False"
+                                    Height="30"
+                                    FontSize="15"
+                                    Foreground="#1c1c1c"
+                                    HorizontalAlignment="Stretch">
+            </currency:CurrencyTextBox>
+            <!--<TextBlock Text="0"
                        Foreground="Black"
                        FontSize="15"
                        FontWeight="Medium"
                        Name="txtSoDu"
-                       VerticalAlignment="Center"></TextBlock>
+                       VerticalAlignment="Center"></TextBlock>-->
         </StackPanel>
 
         <Grid Grid.Row="3"
               Background="#ecf6fd"
               >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="350*"></ColumnDefinition>
+                <ColumnDefinition Width="282*"></ColumnDefinition>
+                <ColumnDefinition Width="67*"/>
             </Grid.ColumnDefinitions>
             <Button
                 HorizontalAlignment="Right"
@@ -255,7 +283,7 @@
                       
                         Height="30" Width="110"
                         FontSize="15"
-                        Margin="0 0 10 0"
+                        Margin="0,6,10,5"
                         Background="#014d71">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="XÁC NHẬN"
@@ -268,8 +296,8 @@
                     HorizontalAlignment="Left"
                     Grid.Column="1"
                         Click="btnThoat_Click"
-                        Style="{DynamicResource MyButton}"
-                         Margin="10 0 0 0"
+                                   Style="{DynamicResource MyButton}"
+                         Margin="10,6,0,5"
                         Height="30" Width="110"
                         FontSize="15"
                         Foreground="White"

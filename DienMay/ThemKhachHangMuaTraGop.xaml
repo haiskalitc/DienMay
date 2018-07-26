@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DienMay"
+         xmlns:currency="clr-namespace:DienMay.NumbericTextBox"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Height="720" Width="1020"
@@ -292,6 +293,7 @@
                            Width="400"></TextBlock>
                                 <TextBox 
                                     MaxLength="2"
+                                    Text="0"
                                     PreviewTextInput="NumberValidationTextBox"
                                     Name="txtSoThangPhaiTra"
                          Width="400"
@@ -302,14 +304,13 @@
 
                             </StackPanel>
                         </Grid>
-                        <Grid Grid.Row="2"
-                              Name="GiaCa"
-                              >
+                        <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <StackPanel
+                                Name="GiaSanPham"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
                                 Grid.Column="0"
@@ -318,20 +319,23 @@
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
-                                <TextBox 
-                                    MaxLength="20"
+
+                                <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
                                     TextChanged="txtGiaSanPham_TextChanged"
                                     PreviewTextInput="NumberValidationTextBox"
-                                    Name="txtGiaSanPham"
-                         Width="400"
-                         Height="30"
-                                  Text="{Binding GiaSanPham.GiaHienThi,
-                                    UpdateSourceTrigger=PropertyChanged,
-                                    StringFormat='#,###'}"
-                                    Tag="{Binding GiaSanPham.GiaSai}"
-                                 FontSize="15"
-                                     Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
+                                    x:Name="txtGiaSanPham"
+                                    Text="0"
+                                    Number="0"
+                                    Width="400"
+                                    Height="30"
+                                    FontSize="15"
+                                    Foreground="#1c1c1c"
+                                    HorizontalAlignment="Stretch">
+                                </currency:CurrencyTextBox>
+
+
+
 
                             </StackPanel>
                             <StackPanel
@@ -343,18 +347,30 @@
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
-                                <TextBox 
+                                <!--<TextBox 
                                     MaxLength="12"
                                     TextChanged="txtDaTraTruoc_TextChanged"
                                     PreviewTextInput="NumberValidationTextBox"
                                     Name="txtDaTraTruoc"
                          Width="400"
                          Height="30"
-                                  Text="{Binding GiaSanPham.GiaHienThi}"
-                                    Tag="{Binding GiaSanPham.GiaSai}"                                 FontSize="15"
+                               Text="0"
+                                 FontSize="15"
                                      Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
-
+                                 HorizontalAlignment="Stretch"></TextBox>-->
+                                <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    TextChanged="txtDaTraTruoc_TextChanged"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    x:Name="txtDaTraTruoc"
+                                    Text="0"
+                                    Number="0"
+                                    Width="400"
+                                    Height="30"
+                                    FontSize="15"
+                                    Foreground="#1c1c1c"
+                                    HorizontalAlignment="Stretch">
+                                </currency:CurrencyTextBox>
                             </StackPanel>
 
                         </Grid>
@@ -372,15 +388,24 @@
                            FontSize="15"
                            Foreground="#014d71"
                            Width="400"></TextBlock>
-                                <TextBox 
+                                <!--<TextBox 
                                     Name="txtConNo"
                                     Width="400"
                                     IsReadOnly="True"
                                     Height="30"
                                     FontSize="15"
                                      Foreground="#1c1c1c"
-                                 HorizontalAlignment="Stretch"></TextBox>
-
+                                 HorizontalAlignment="Stretch"></TextBox>-->
+                                <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    x:Name="txtConNo"
+                                    Text="0"
+                                    Width="400"
+                                    Height="30"
+                                    FontSize="15"
+                                    Foreground="#1c1c1c"
+                                    HorizontalAlignment="Stretch">
+                                </currency:CurrencyTextBox>
                             </StackPanel>
 
                         </Grid>

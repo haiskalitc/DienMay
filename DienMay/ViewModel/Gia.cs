@@ -8,8 +8,8 @@ namespace DienMay.ViewModel
 {
     public class Gia : BaseNotifyPropertyChange
     {
-        private long _giHienThi;
-        public long GiaHienThi
+        private string _giHienThi;
+        public string GiaHienThi
         {
             get
             {
@@ -17,12 +17,9 @@ namespace DienMay.ViewModel
             }
             set
             {
-                if (value != null)
-                {
-                    SetProperty(ref _giHienThi, value, () => { RaisePropertyChanged(nameof(GiaHienThi)); });
-                }
+                SetProperty(ref _giHienThi, value, () => { RaisePropertyChanged(nameof(GiaHienThi)); });
             }
         }
-     //   public long GiaSai => long.Parse(_giHienThi.Replace(".", ""));
+        public long GiaSai => long.Parse(_giHienThi);
     }
 }

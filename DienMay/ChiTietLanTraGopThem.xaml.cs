@@ -35,7 +35,6 @@ namespace DienMay
         {
 
             InitializeComponent();
-
             danhSach.Add(new ChiTietTraGopModel("Lần" + 1, new CHITIETMUAHANG() { ChuoiNgayTra = "05/11/1995", SoTienConLai = 1000 }));
 
             if (this.Content.DataContext == null)
@@ -214,18 +213,18 @@ namespace DienMay
                         if (isNo > 0)
                         {
                             txtSoDu.Foreground = System.Windows.Media.Brushes.Green;
-                            txtSoDu.Text = "+ " + isNo;
+                            txtSoDu.Number = isNo;
                             isNo = 1;
                         }
                         else if (isNo < 0)
                         {
                             txtSoDu.Foreground = System.Windows.Media.Brushes.Green;
-                            txtSoDu.Text = isNo + "";
+                            txtSoDu.Number = isNo;
                             isNo = -1;
                         }
                         else
                         {
-                            txtSoDu.Text = "0";
+                            txtSoDu.Number = isNo;
                             txtSoDu.Foreground = System.Windows.Media.Brushes.Black;
                             isNo = 0;
                         }
@@ -238,5 +237,7 @@ namespace DienMay
         {
 
         }
+
+
     }
 }

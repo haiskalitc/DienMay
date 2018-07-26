@@ -72,8 +72,8 @@ namespace DienMay
                 txtTenSanPham.Text = mhTemp.TenSanPham;
                 txtNgayMua.Text = mhTemp.ChuoiNgayMua;
                 txtSoThangTra.Text = mhTemp.SoThangTra.ToString();
-                txtGiaSanPham.Text = mhTemp.GiaSanPham.ToString();
-                txtDaTraTruoc.Text = mhTemp.TraTruoc.ToString();
+                txtGiaSanPham.Number = mhTemp.GiaSanPham;
+                txtDaTraTruoc.Number = mhTemp.TraTruoc;
                 txtTenNguoiBaoLanh.Text = khTemp.TenNguoiBaoLanh;
             }
             if (mhTemp.ConLai > 0)
@@ -97,7 +97,7 @@ namespace DienMay
             {
                 so += item.MuaHang.SoTienConLai;
             }
-            txtTongConNo.Text = so.ToString();
+            txtTongConNo.Number = so;//.ToString();
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
@@ -162,7 +162,7 @@ namespace DienMay
                     {
                         so += itemChiTiet.MuaHang.SoTienConLai;
                     }
-                    txtTongConNo.Text = so.ToString();
+                    txtTongConNo.Number = so;//.ToString();
                     itemSelected.ThongTinMuaHang.ConLai = so;
                     XuLyMuaHang.getInstance.SuaMuaHang(itemSelected.ThongTinMuaHang);
 

@@ -36,22 +36,11 @@ namespace DienMay
         public long hinhThuc = 1;
         List<HINHTHUC> danhSachHinhThucMua = new List<HINHTHUC>();
         public event EventHandler QuayLai;
-        ModelThemKhachHang modelThemKhachHang = null;
         public ThemKhachHangMuaTraGop()
         {
             InitializeComponent();
             danhSachHinhThucMua = XuLyHinhThuc.getInstance.DocDanhSachTatCa();
             dataHinhThucMua.DataContext = danhSachHinhThucMua;
-            modelThemKhachHang = new ModelThemKhachHang()
-            {
-                GiaSanPham = new Gia() { GiaHienThi = 100000
-                    },
-                GiaTraTruoc = new Gia() { GiaHienThi = 2000}
-            };
-            if(GiaCa.DataContext==null)
-            {
-                GiaCa.DataContext = modelThemKhachHang;
-            }
         }
 
         private void btnDong_Click(object sender, RoutedEventArgs e)
@@ -62,8 +51,8 @@ namespace DienMay
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             hinhThuc = (long)cbbHinhThucMua.SelectedValue;
-            txtDaTraTruoc.Text = txtGiaSanPham.Text;
-            txtConNo.Text = "0";
+            txtDaTraTruoc.Number = txtGiaSanPham.Number;
+            txtConNo.Number = 0;
             txtSoThangPhaiTra.Text = "0";
             if (hinhThuc == 1)
             {
@@ -79,46 +68,46 @@ namespace DienMay
 
         private void txtGiaSanPham_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (hinhThuc == 1)
+            {
+                try
+                {
+                    txtDaTraTruoc.Number = txtGiaSanPham.Number;
+                }
+                catch (Exception)
+                {
+                }
+            }
+            else
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()))
+                    {
+                        //long result = long.Parse(string.IsNullOrEmpty(txtGiaSanPham.Text.Trim()) ? "0" : txtGiaSanPham.Text.Trim()) -
+                        //    long.Parse(string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()) ? "0" : txtDaTraTruoc.Text.Trim());
+                        long result = (long)txtGiaSanPham.Number - (long)txtDaTraTruoc.Number;
+                        if (result > 0)
+                        {
+                            txtConNo.Number = result;
+                            txtConNo.Foreground = System.Windows.Media.Brushes.Black;
+                        }
+                        else
+                        {
+                            txtConNo.Number = result;
+                            txtConNo.Foreground = System.Windows.Media.Brushes.Red;
+                        }
 
-            //if (hinhThuc == 1)
-            //{
-            //    try
-            //    {
-            //        txtDaTraTruoc.Text = txtGiaSanPham.Text;
-            //    }
-            //    catch (Exception)
-            //    {
-            //    }
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        if (!string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()))
-            //        {
-            //            long result = long.Parse(string.IsNullOrEmpty(txtGiaSanPham.Text.Trim()) ? "0" : txtGiaSanPham.Text.Trim()) -
-            //                long.Parse(string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()) ? "0" : txtDaTraTruoc.Text.Trim());
-            //            if (result > 0)
-            //            {
-            //                txtConNo.Text = result + "";
-            //                txtConNo.Foreground = System.Windows.Media.Brushes.Black;
-            //            }
-            //            else
-            //            {
-            //                txtConNo.Text = result + "";
-            //                txtConNo.Foreground = System.Windows.Media.Brushes.Red;
-            //            }
-
-            //        }
-            //    }
-            //    catch (Exception)
-            //    { }
-            //}
+                    }
+                }
+                catch (Exception)
+                { }
+            }
         }
 
         private void btnXacNhan_Click(object sender, RoutedEventArgs e)
         {
-            if (long.Parse(txtConNo.Text) < 0)
+            if ((long)(txtConNo.Number) < 0)
             {
                 MessageBox.Show("Số tiền không hợp lệ!", "Thông báo");
                 return;
@@ -130,10 +119,10 @@ namespace DienMay
             }
             if (string.IsNullOrEmpty(txtSoThangPhaiTra.Text))
             {
-                MessageBox.Show("Số tháng phải trả không hợp lệ!","Thông báo");
+                MessageBox.Show("Số tháng phải trả không hợp lệ!", "Thông báo");
                 return;
             }
-            if (int.Parse(txtConNo.Text) != 0)
+            if ((long)(txtConNo.Number)!= 0)
             {
                 if (int.Parse(txtSoThangPhaiTra.Text) == 0)
                 {
@@ -149,7 +138,7 @@ namespace DienMay
                 khachHang.SoDienThoai = txtSoDienThoai.Text;
                 khachHang.TenNguoiBaoLanh = txtTenNguoiBaoLanh.Text;
                 khachHang.DiaChi = txtDiaChi.Text;
-                if (int.Parse(txtConNo.Text) == 0)
+                if ((long)(txtConNo.Number) == 0)
                 {
                     khachHang.IdTrangThai = 2;
                 }
@@ -162,10 +151,10 @@ namespace DienMay
                     MUAHANG muaHang = new MUAHANG();
                     muaHang.IdKhachHang = khachHang.Id;
                     muaHang.ChuoiNgayMua = txtNgayMua.SelectedDate.Value.ToString("dd/MM/yyyy");
-                    muaHang.GiaSanPham = long.Parse(txtGiaSanPham.Text);
+                    muaHang.GiaSanPham = (long)txtGiaSanPham.Number;
                     muaHang.SoThangTra = long.Parse(txtSoThangPhaiTra.Text);
-                    muaHang.TraTruoc = long.Parse(txtDaTraTruoc.Text);
-                    muaHang.ConLai = long.Parse(txtConNo.Text);
+                    muaHang.TraTruoc = (long)txtDaTraTruoc.Number;
+                    muaHang.ConLai = (long)(txtConNo.Number);
                     muaHang.TenSanPham = txtTenSanPham.Text;
                     if (XuLyMuaHang.getInstance.ThemMuaHang(muaHang))
                     {
@@ -176,9 +165,9 @@ namespace DienMay
                             txtSoDienThoai.Text = "";
                             txtTenNguoiBaoLanh.Text = "";
                             txtDiaChi.Text = "";
-                            txtGiaSanPham.Text = "0";
+                            txtGiaSanPham.Number = 0;
                             txtSoThangPhaiTra.Text = "0";
-                            txtDaTraTruoc.Text = "0";
+                            txtDaTraTruoc.Number = 0;
                             txtTenSanPham.Text = "";
                             txtNgayMua.Text = "";
                             txtConNo.Text = "0";
@@ -188,7 +177,8 @@ namespace DienMay
                         else
                         {
                             List<CHITIETMUAHANG> dsChiTietMuaHangTam = new List<CHITIETMUAHANG>();
-                            List<long> dsChiaDeu = XuLyChung.DivideEvenly(long.Parse(txtConNo.Text), long.Parse(txtSoThangPhaiTra.Text)).ToList();
+                            List<long> dsChiaDeu = XuLyChung.DivideEvenly((long)(txtConNo.Number),
+                                long.Parse(txtSoThangPhaiTra.Text)).ToList();
                             for (int i = 0; i < dsChiaDeu.Count; i++)
                             {
                                 try
@@ -226,16 +216,16 @@ namespace DienMay
                                 };
                                 chiTietLanTraGopThem.BackLuu += (sen, arg) =>
                                 {
-      
+
                                     MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButton.OK);
                                     (sen as ChiTietLanTraGopThem).Close();
                                     txtTenKhachHang.Text = "";
                                     txtSoDienThoai.Text = "";
                                     txtTenNguoiBaoLanh.Text = "";
                                     txtDiaChi.Text = "";
-                                    txtGiaSanPham.Text = "0";
+                                    txtGiaSanPham.Number = 0;
                                     txtSoThangPhaiTra.Text = "0";
-                                    txtDaTraTruoc.Text = "0";
+                                    txtDaTraTruoc.Number = 0;
                                     txtTenSanPham.Text = "";
                                     txtNgayMua.Text = "";
                                     txtConNo.Text = "0"; this.Show();
@@ -272,8 +262,9 @@ namespace DienMay
                 {
                     if (!string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()))
                     {
-                        long result = long.Parse(string.IsNullOrEmpty(txtGiaSanPham.Text.Trim()) ? "0" : txtGiaSanPham.Text.Trim()) -
-                            long.Parse(string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()) ? "0" : txtDaTraTruoc.Text.Trim());
+                        //long result = long.Parse(string.IsNullOrEmpty(txtGiaSanPham.Text.Trim()) ? "0" : txtGiaSanPham.Text.Trim()) -
+                        //    long.Parse(string.IsNullOrEmpty(txtDaTraTruoc.Text.Trim()) ? "0" : txtDaTraTruoc.Text.Trim());
+                        long result = (long)txtGiaSanPham.Number - (long)txtDaTraTruoc.Number;
                         if (result > 0)
                         {
                             txtConNo.Text = result + "";

@@ -18,7 +18,7 @@ namespace DienMay.ViewModel
         {
 
         }
-        public BanTraGopMainViewModel(KHACHANG kh, TRANGTHAI tt,MUAHANG mh)
+        public BanTraGopMainViewModel(KHACHANG kh, TRANGTHAI tt, MUAHANG mh)
         {
             this.ThongTinKhacHang = kh;
             this.TrangThai = tt;
@@ -28,7 +28,8 @@ namespace DienMay.ViewModel
                 //con no
                 this.MaMau = "#CC0000";
             }
-            else {
+            else
+            {
                 //hoan thanh
                 this.MaMau = "#006600";
 

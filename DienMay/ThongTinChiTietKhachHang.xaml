@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DienMay"
+                xmlns:currency="clr-namespace:DienMay.NumbericTextBox"
+
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Height="720" Width="1020"
@@ -230,31 +232,40 @@
                                            FontSize="15"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
-                                <TextBox Name="txtGiaSanPham"
-                                         Width="300"
-                                         IsReadOnly="True"
-                                         Height="30"
-                                         FontSize="15"
-                                         Foreground="#1c1c1c"
-                                         HorizontalAlignment="Left">
-                                </TextBox>
+
+                                <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    x:Name="txtGiaSanPham"
+                                    Text="0"
+                                    Number="0"
+                                    Width="300"
+                                    Height="30"
+                                    FontSize="15"
+                                    Foreground="#1c1c1c"
+                                    HorizontalAlignment="Left">
+                                </currency:CurrencyTextBox>
+
+
                             </StackPanel>
                             <StackPanel VerticalAlignment="Center"
                                         HorizontalAlignment="Left"
                                         Grid.Column="1"
                                         Orientation="Vertical">
-                                <TextBlock Text="Đã trả trước: "
+                                <TextBlock Text="Trả trước: "
                                            FontSize="15"
                                            Foreground="#014d71"
                                            Width="400"></TextBlock>
-                                <TextBox Name="txtDaTraTruoc"
-                                         Width="300"
-                                         IsReadOnly="True"
-                                         Height="30"
-                                         FontSize="15"
-                                         Foreground="#1c1c1c"
-                                         HorizontalAlignment="Left">
-                                </TextBox>
+                                <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    x:Name="txtDaTraTruoc"
+                                    Text="0"
+                                    Number="0"
+                                    Width="300"
+                                    Height="30"
+                                    FontSize="15"
+                                    Foreground="#1c1c1c"
+                                    HorizontalAlignment="Stretch">
+                                </currency:CurrencyTextBox>
                             </StackPanel>
                             <StackPanel VerticalAlignment="Center"
                                         HorizontalAlignment="Left"
@@ -401,7 +412,22 @@
                                                             HeaderStyle="{DynamicResource DataGridColumnHeader}">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBox     
+                                                <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                     x:Name="Gia"
+                                            Number="{Binding MuaHang.SoTienConLai ,
+                                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                    FontSize="15"
+                                    VerticalAlignment="Center"
+                                    Padding="5 7.5 5 7.5"
+                                    Width="170"
+                                                                                IsEnabled="False"
+
+                                            Height="40"
+ Foreground="{Binding MaMau}"
+                                            HorizontalAlignment="Center">
+                                                </currency:CurrencyTextBox>
+                                                <!--<TextBox     
                                             x:Name="Gia"
                                             IsEnabled="False"
                                             HorizontalAlignment="Center"
@@ -412,7 +438,7 @@
                                             Width="170"
                                                                 Height="40"
                                                     Foreground="{Binding MaMau}">
-                                                </TextBox>
+                                                </TextBox>-->
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                         <DataGridTemplateColumn.HeaderTemplate>
@@ -524,20 +550,36 @@
 
                 <StackPanel VerticalAlignment="Center"
                                         Grid.Row="2"
+                            Margin="0 0 10 0"
                                         HorizontalAlignment="Right"
                                         Orientation="Horizontal">
                     <TextBlock Text="Tổng nợ : "
+                               VerticalAlignment="Center"
                                            FontSize="15"
                                            Foreground="#014d71"
-                                           Width="100"></TextBlock>
-                    <TextBlock Name="txtTongConNo"
+                                           Width="80"></TextBlock>
+
+                    <currency:CurrencyTextBox                                    
+                                    MaxLength="12"
+                                    x:Name="txtTongConNo"
+                                    Text="0"
+                                    Width="200"
+                IsEnabled="False"
+                                    Height="30"
+                        VerticalAlignment="Center"
+                                    FontSize="15"
+                                    Foreground="#1c1c1c"
+                                    HorizontalAlignment="Center">
+                    </currency:CurrencyTextBox>
+
+                    <!--<TextBlock Name="txtTongConNo"
                                          Width="150"
                                          Text="0"
                                          Height="30"
                                          FontSize="15"
                                          Foreground="#1c1c1c"
                                          HorizontalAlignment="Left">
-                    </TextBlock>
+                    </TextBlock>-->
                 </StackPanel>
 
             </Grid>

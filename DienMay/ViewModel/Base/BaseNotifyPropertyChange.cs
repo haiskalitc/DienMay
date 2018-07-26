@@ -14,19 +14,19 @@ namespace DienMay.ViewModel.Base
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected void RaisePropertyChanged( string propertyName = null)
+        protected void RaisePropertyChanged(string propertyName = null)
         {
             OnPropertyChanged(propertyName);
         }
 
-        protected virtual bool SetProperty<T>(ref T storage, T value, Action action,string propertyName = null)
+        protected virtual bool SetProperty<T>(ref T storage, T value, Action action, string propertyName = null)
         {
             var r = SetProperty(ref storage, value, propertyName);
             if (r) action?.Invoke();
             return r;
         }
 
-        protected virtual bool SetProperty<T>(ref T storage, T value,string propertyName = null)
+        protected virtual bool SetProperty<T>(ref T storage, T value, string propertyName = null)
         {
             if (Equals(storage, value)) return false;
 

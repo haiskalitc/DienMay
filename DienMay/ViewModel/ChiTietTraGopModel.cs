@@ -21,12 +21,13 @@ namespace DienMay.ViewModel.Base
             get { return ngayPhaiTra; }
             set
             {
-                    SetProperty(ref ngayPhaiTra, value);            }
+                SetProperty(ref ngayPhaiTra, value);
+            }
         }
         private CHITIETMUAHANG muaHang;
         public CHITIETMUAHANG MuaHang
         {
-            get { return muaHang;}
+            get { return muaHang; }
             set
             {
                 if (value != null)
@@ -39,7 +40,7 @@ namespace DienMay.ViewModel.Base
         {
             this.STT = stt;
             this.muaHang = chiTiet;
-            ngayPhaiTra =  new DateTime(int.Parse(muaHang.ChuoiNgayTra.Split('/')[2]),
+            ngayPhaiTra = new DateTime(int.Parse(muaHang.ChuoiNgayTra.Split('/')[2]),
             int.Parse(muaHang.ChuoiNgayTra.Split('/')[1]),
             int.Parse(muaHang.ChuoiNgayTra.Split('/')[0]));
         }
