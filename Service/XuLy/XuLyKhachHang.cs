@@ -97,7 +97,7 @@ namespace Service.XuLy
             {
                 try
                 {
-                    db.KHACHANGs.Remove(kh);
+                    db.Entry(kh).State = System.Data.Entity.EntityState.Deleted;
                     if (db.SaveChanges() >= 0)
                     {
                         return true;

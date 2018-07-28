@@ -65,7 +65,9 @@ namespace Service.XuLy
             {
                 try
                 {
-                    db.CHITIETVAYLAIs.Remove(chiTiet);
+                 //   db.CHITIETVAYLAIs.Remove(chiTiet);
+                    db.Entry(chiTiet).State = System.Data.Entity.EntityState.Deleted;
+
                     if (db.SaveChanges() >= 0)
                     {
                         return true;

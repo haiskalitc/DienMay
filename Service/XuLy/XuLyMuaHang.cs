@@ -114,7 +114,7 @@ namespace Service.XuLy
             {
                 try
                 {
-                    db.MUAHANGs.Remove(mh);
+                    db.Entry(mh).State = System.Data.Entity.EntityState.Deleted;
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
@@ -124,7 +124,7 @@ namespace Service.XuLy
                         return false;
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     return false;
                 }

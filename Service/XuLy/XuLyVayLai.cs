@@ -111,7 +111,9 @@ namespace Service.XuLy
             {
                 try
                 {
-                    db.VAYLAIs.Remove(mh);
+                   // db.VAYLAIs.Remove(mh);
+                    db.Entry(mh).State = System.Data.Entity.EntityState.Deleted;
+
                     if (db.SaveChanges() >= 0)
                     {
                         return true;
